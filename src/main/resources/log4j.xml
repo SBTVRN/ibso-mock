@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{yyyy-MM-dd HH:mm:ss}] %p - %C{2}.%M(%L) | %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="net.sf.ehcache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.apache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.hibernate">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.apache.velocity">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="org.apache.camel">
+        <level value="WARN"/>
+    </logger>
+
+    <!-- Suppress warnings from Commons Validator -->
+    <logger name="org.apache.commons.validator.ValidatorResources">
+        <level value="WARN"/>
+    </logger>
+
+    <!-- Suppress invalid warning messages from JSF -->
+    <logger name="org.apache.myfaces.shared_impl.renderkit.html">
+        <level value="ERROR"/>
+    </logger>
+    
+    <logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+   
+    <logger name="ru.sbt.drtmn.lab.bus">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="ru.sbt.drtmn.lab.webapp">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="ru.sbt.drtmn.lab.dao.spring">
+        <level value="INFO"/>
+    </logger>
+
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</log4j:configuration>
