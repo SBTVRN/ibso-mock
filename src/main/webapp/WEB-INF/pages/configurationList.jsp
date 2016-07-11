@@ -40,7 +40,7 @@
             <%--</s:submit>--%>
         </div>
 
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="50">
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="1">
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
@@ -55,19 +55,16 @@
             <display:setProperty name="export.banner"><div class="exportlinks"> <fmt:message key="configurationList.export.banner"/>{0} </div></display:setProperty>
             <display:setProperty name="paging.banner.item_name"><fmt:message key="configurationList.configuration"/></display:setProperty>
             <display:setProperty name="paging.banner.items_name"><fmt:message key="configurationList.configurations"/></display:setProperty>
-            <display:setProperty name="paging.banner.no_items_found"><span class="pagebanner"><fmt:message key="configurationList.paging.banner.no_items_found"/></span></display:setProperty>
-            <display:setProperty name="paging.banner.one_item_found">
-                <span class="pagebanner"><fmt:message key="configurationList.paging.banner.one_item_found"/> {0} <fmt:message key="configurationList.paging.banner.found"/>.</span>
-            </display:setProperty>
+            <display:setProperty name="paging.banner.no_items_found"><span class="pagebanner"><fmt:message key="configurationList.paging.banner.no_items_found"/>.</span></display:setProperty>
+            <display:setProperty name="paging.banner.one_item_found"><span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> 1.</span></display:setProperty>
             <display:setProperty name="paging.banner.all_items_found">
-                <span class="pagebanner">{0} {1} <fmt:message key="configurationList.paging.banner.found"/>,
-                    <fmt:message key="configurationList.paging.banner.all_items_found"/> {2}.
+                <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0}, <fmt:message key="configurationList.paging.banner.displaying_all"/> {2}.
                 </span>
             </display:setProperty>
             <display:setProperty name="paging.banner.some_items_found">
-                <span class="pagebanner">
-                    {0} {1} <fmt:message key="configurationList.paging.banner.found"/>,
-                    <fmt:message key="configurationList.paging.banner.some_items_found_from"/> {2} <fmt:message key="configurationList.paging.banner.some_items_found_to"/> {3}.
+                <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0},
+                    <fmt:message key="configurationList.paging.banner.displaying_from"/> {2}
+                    <fmt:message key="configurationList.paging.banner.displaying_to"/> {3}.
                 </span>
             </display:setProperty>
             <display:setProperty name="paging.banner.full">
