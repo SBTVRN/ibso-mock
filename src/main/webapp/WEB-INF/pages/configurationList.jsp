@@ -40,7 +40,7 @@
             <%--</s:submit>--%>
         </div>
 
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="1">
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="50">
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
