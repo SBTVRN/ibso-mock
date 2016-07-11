@@ -40,7 +40,7 @@
             <%--</s:submit>--%>
         </div>
 
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="50">
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="2">
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
@@ -90,7 +90,7 @@
                     {0} [<fmt:message key="configurationList.paging.banner.next"/>/<fmt:message key="configurationList.paging.banner.last"/>]
                 </span>
             </display:setProperty>
-            <display:setProperty name="paging.banner.page.link"><a href="{1}" title=<fmt:message key="configurationList.paging.banner.link"/>>{0}</a></display:setProperty>
+            <display:setProperty name="paging.banner.page.link"><a href="{1}" title=<fmt:message key="configurationList.paging.banner.link"/> {0}>{0}</a></display:setProperty>
             <display:setProperty name="basic.msg.empty_list"><fmt:message key="configurationList.basic.msg.empty_list"/></display:setProperty>
 
 

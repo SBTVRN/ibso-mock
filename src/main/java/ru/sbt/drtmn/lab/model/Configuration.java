@@ -149,7 +149,7 @@ public class Configuration extends GenericModel implements Serializable {
     // Transient
     @Transient
     public String getActiveYesNo() {
-        return true == active ? "Y" : "N";
+        return true == active ? "Да" : "Нет";
     }
 
     @Transient
