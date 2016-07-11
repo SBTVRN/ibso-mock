@@ -72,8 +72,8 @@ $(function() {
     <button id="remove_input_param" type="button" class="btn btn-warning"><fmt:message key="configuration.removeInputParameter"/></button>
     <table id="input_table" class="table table-bordered">
         <tr>
-            <th style="width:15%;">Name</th>
-            <th>Value</th>
+            <th style="width:15%;"><fmt:message key="configuration.ParameterName"/></th>
+            <th><fmt:message key="configuration.ParameterValue"/></th>
         </tr>
         <s:iterator value="messageConfiguration.inputParameterList" status="status" var="param">
             <tr id="input_param">
@@ -87,8 +87,8 @@ $(function() {
     <button id="remove_output_param" type="button" class="btn btn-warning"><fmt:message key="configuration.removeOutputParameter"/></button>
     <table id="output_table" class="table table-bordered">
         <tr>
-            <th style="width:15%;">Name</th>
-            <th>Value</th>
+            <th style="width:15%;"><fmt:message key="configuration.ParameterName"/></th>
+            <th><fmt:message key="configuration.ParameterValue"/></th>
         </tr>
         <s:iterator value="messageConfiguration.outputParameterList" status="stat" var="param">
             <tr>
