@@ -591,6 +591,13 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" />
+      </map>
+    </option>
+  </component>
   <component name="dataSourceStorageLocal">
     <data-source name="Oracle - dbwork2@k9" uuid="af505736-6abb-4ffd-9856-77d84866869d">
       <user-name>yvikentiev</user-name>
