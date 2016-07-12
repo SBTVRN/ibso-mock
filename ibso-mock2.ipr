@@ -388,7 +388,6 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="true">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/sbt/drtmn/lab/util/FileUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../sbbol-api/Readme.txt" charset="windows-1251" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">

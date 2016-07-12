@@ -4,6 +4,7 @@
     <persistence-unit name="ApplicationEntityManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>ru.sbt.drtmn.lab.model.Configuration</class>
+        <class>ru.sbt.drtmn.lab.model.Section</class>
     </persistence-unit>
 
     <!-- WARNING: This file's file original source is at webapp/common/src/main/resources/META-INF. The

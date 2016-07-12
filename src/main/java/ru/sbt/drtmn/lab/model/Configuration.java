@@ -22,7 +22,7 @@ import java.util.List;
  *
   */
 @Entity
-@Table(name = "configuration")
+@Table(name = "CONFIGURATIONS")
 @TypeDefs(
 {
     @TypeDef(name = "xmlType", typeClass = JaxbXMLType.class, parameters = {
@@ -38,10 +38,14 @@ import java.util.List;
     @NamedQuery(
         name = "findAllConfigurationsByName",
         query = " from Configuration c where c.name = :name"
+    ),
+    @NamedQuery(
+        name = "findAllConfigurationsBySectionId",
+        query = " from Configuration c where c.section = :section"
     )
 })
 @XmlRootElement
-@XmlType(propOrder = {"id", "name", "description", "active", "inputParams", "outputParams", "messageTemplate"})
+@XmlType(propOrder = {"id", "name", "description", "section", "active", "inputParams", "outputParams", "messageTemplate"})
 public class Configuration extends GenericModel implements Serializable {
     private static final long serialVersionUID = 3690197650654049848L;
 
@@ -49,6 +53,7 @@ public class Configuration extends GenericModel implements Serializable {
     // method name
     private String name;
     private String description;
+    private Section section;
     private Boolean active;
     // params and template
     private String messageTemplate;
@@ -82,18 +87,22 @@ public class Configuration extends GenericModel implements Serializable {
         return this.name;
     }
 
-    @Column(nullable = false)
-    public Boolean getActive() {
-        return active;
-    }
-
     @Column(length = 100)
     public String getDescription() {
         return this.description;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "SECTION_ID")
+    public Section getSection() { return this.section; }
+
+    @Column(nullable = false)
+    public Boolean getActive() {
+        return active;
+    }
+
     @Lob
-    @Column(name = "MESSAGE_TEMPLATE",nullable = false)
+    @Column(name = "MESSAGE_TEMPLATE", nullable = false)
     public String getMessageTemplate() {
         return messageTemplate;
     }
@@ -128,6 +137,10 @@ public class Configuration extends GenericModel implements Serializable {
     @XmlElement
     public void setDescription(String description) {
         this.description = description;
+    }
+    @XmlElement
+    public void setSection(Section section) {
+        this.section = section;
     }
     @XmlElement
     public void setActive(Boolean active) {
@@ -218,6 +231,7 @@ public class Configuration extends GenericModel implements Serializable {
         return "Configuration: " + this.id
                + ",\n Configuration Name: " + this.name
                + ",\n Configuration Description: " + this.description
+               + ",\n Configuration Section: " + this.section
                + ",\n Configuration Active: " + this.active
                + ",\n Configuration Input Params [" + this.inputParams + "]"
                + ",\n Configuration Output Params [" + this.outputParams + "]"
