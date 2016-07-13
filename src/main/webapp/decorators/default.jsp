@@ -16,6 +16,7 @@
     <script type="text/javascript" src="${ctx}/webjars/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="${ctx}/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${ctx}/scripts/app.js"></script>
+    <script type="text/javascript" src="${ctx}/webjars/jquery/jquery.i18n.properties.min.js"></script>
     <decorator:head/>
 </head>
 
