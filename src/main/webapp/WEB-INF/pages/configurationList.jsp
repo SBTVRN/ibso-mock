@@ -40,6 +40,8 @@
             <%--</s:submit>--%>
         </div>
 
+
+
         <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="20">
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
@@ -58,14 +60,14 @@
             <display:setProperty name="paging.banner.no_items_found"><span class="pagebanner"><fmt:message key="configurationList.paging.banner.no_items_found"/>.</span></display:setProperty>
             <display:setProperty name="paging.banner.one_item_found"><span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> 1.</span></display:setProperty>
             <display:setProperty name="paging.banner.all_items_found">
-                <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0}, <fmt:message key="configurationList.paging.banner.displaying_all"/> {2}.
-                </span>
+                    <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0}, <fmt:message key="configurationList.paging.banner.displaying_all"/> {2}.
+                    </span>
             </display:setProperty>
             <display:setProperty name="paging.banner.some_items_found">
-                <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0},
-                    <fmt:message key="configurationList.paging.banner.displaying_from"/> {2}
-                    <fmt:message key="configurationList.paging.banner.displaying_to"/> {3}.
-                </span>
+                    <span class="pagebanner"><fmt:message key="configurationList.paging.banner.records"/> {0},
+                        <fmt:message key="configurationList.paging.banner.displaying_from"/> {2}
+                        <fmt:message key="configurationList.paging.banner.displaying_to"/> {3}.
+                    </span>
             </display:setProperty>
             <display:setProperty name="paging.banner.full">
                 <span class="pagelinks">
