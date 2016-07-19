@@ -39,7 +39,7 @@
                 <s:submit type="button" cssClass="btn btn-warning" method="deactivateSelected" key="button.deactivate" theme="simple">
                     <i class="icon-remove"></i> <fmt:message key="button.deactivate"/>
                 </s:submit>
-                <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple">
+                <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple" onclick="">
                     <i class="icon-remove"></i> <fmt:message key="button.delete"/>
                 </s:submit>
                 <%--<s:submit type="button" cssClass="btn btn-default" method="/editConfiguration" key="button.history" theme="simple">--%>

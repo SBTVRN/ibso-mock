@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/taglibs.jsp" %>
 
 <head>
@@ -78,7 +79,8 @@ $(function() {
         <s:iterator value="messageConfiguration.inputParameterList" status="status" var="param">
             <tr id="input_param">
                 <td><s:textfield value="%{#param.name}" name="messageConfiguration.inputParameterList[%{#status.index}].name"/></td>
-                <td><s:textfield size="60" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>
+                <%--<td><s:textfield size="60" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>--%>
+                <td><s:textarea cols="60" rows="1" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>
             </tr>
         </s:iterator>
     </table>
