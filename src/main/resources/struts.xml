@@ -50,7 +50,12 @@
             <exception-mapping exception="org.springframework.dao.DataAccessException" result="dataAccessFailure"/>
         </global-exception-mappings>
 
-        <!-- List of configurations -->
+        <!-- List of configurations. Search -->
+        <action name="search" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        </action>
+
+        <!-- List of configurations. pageSizeChange -->
         <action name="pageSizeChange" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>

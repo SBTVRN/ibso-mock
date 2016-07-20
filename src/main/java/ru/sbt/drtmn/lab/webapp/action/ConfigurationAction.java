@@ -298,4 +298,8 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     public String getPageSize() {return pageSize;}
 
     public void setPageSize(String pageSize) {this.pageSize = pageSize;}
+
+    public String getQuery() {return query;}
+
+    public void setQuery(String query) {this.query = query;}
 }

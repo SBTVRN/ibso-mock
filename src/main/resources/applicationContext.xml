@@ -57,7 +57,10 @@
                 <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
                 <!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>-->
                 <!-- Hibernate Search index directory -->
-                <prop key="hibernate.search.default.indexBase">${app.search.index.basedir}</prop>
+                <prop key="hibernate.search.lucene_version">${hibernate.search.lucene_version}</prop>
+                <prop key="hibernate.search.default.directory_provider">${hibernate.search.default.directory_provider}</prop>
+                <!--<prop key="hibernate.search.default.indexBase">${app.search.index.basedir}</prop>-->
+                <prop key="hibernate.search.default.indexBase">${hibernate.search.default.indexBase}</prop>
             </props>
             <!-- Turn batching off for better error messages under PostgreSQL -->
             <!-- hibernate.jdbc.batch_size=0 -->

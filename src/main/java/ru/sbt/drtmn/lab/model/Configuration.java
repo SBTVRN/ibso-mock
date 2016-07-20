@@ -6,6 +6,7 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
+import org.hibernate.search.annotations.*;
 import ru.sbt.drtmn.lab.util.JaxbXMLType;
 import ru.sbt.drtmn.lab.xml.Param;
 import ru.sbt.drtmn.lab.xml.ParamList;
@@ -21,6 +22,7 @@ import java.util.List;
  * This class is used to represent configuration.
  *
   */
+@Indexed
 @Entity
 @Table(name = "CONFIGURATIONS")
 @TypeDefs(
@@ -78,15 +80,18 @@ public class Configuration extends GenericModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_Sequence")
     @SequenceGenerator(name = "id_Sequence", sequenceName = "CONF_ID_GEN")
+    @DocumentId
     public Long getId() {
         return id;
     }
 
+    @Field(index= Index.YES, analyze= Analyze.YES, store=Store.NO)
     @Column(length = 64,nullable = false)
     public String getName() {
         return this.name;
     }
 
+    @Field(index= Index.YES, analyze= Analyze.YES, store=Store.NO)
     @Column(length = 100)
     public String getDescription() {
         return this.description;
