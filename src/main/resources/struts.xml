@@ -55,11 +55,6 @@
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>
 
-        <!-- List of configurations. pageSizeChange -->
-        <action name="pageSizeChange" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
-            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
-        </action>
-
         <!-- List of configurations -->
         <action name="pageSizeChange" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
