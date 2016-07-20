@@ -61,6 +61,19 @@ public class Section extends GenericModel implements Serializable {
         return this.description;
     }
 
+    @OneToMany(mappedBy = "section", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Configuration> getConfigurations() {
+        return configurations;
+    }
+
+    @Transient
+    public int getConfigurationsSize() {
+        if (configurations != null) {
+            return configurations.size();
+        }
+        return 0;
+    }
+
     // Setters
     public void setId(Long id) {
         this.id = id;
@@ -70,11 +83,6 @@ public class Section extends GenericModel implements Serializable {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @OneToMany(mappedBy = "section", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    public Set<Configuration> getConfigurations() {
-        return configurations;
     }
     public void setConfigurations(Set<Configuration> configurations) {
         this.configurations = configurations;

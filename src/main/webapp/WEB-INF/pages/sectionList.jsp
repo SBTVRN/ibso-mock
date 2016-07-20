@@ -1,74 +1,50 @@
+<%--
+  Created by RazuvaevSV
+  Date: 13.07.2016
+--%>
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
-    <%--<title><fmt:message key="configurationList.title"/></title>--%>
-    <%--<meta name="menu" content="ConfigurationMenu"/>--%>
+<%--<title><fmt:message key="configurationList.title"/></title>--%>
+<%--<meta name="menu" content="ConfigurationMenu"/>--%>
 <%--</head>--%>
 
 <div class="span10">
-    <h2>
-        <s:property value="pageTitle" />
-    </h2>
+    <h2><fmt:message key="sectionList.heading"/></h2>
 
-    <s:form action="configurationActions" id="searchForm" class="form-search" >
+    <form method="get" action="${ctx}/sectionActions" id="searchForm" class="form-search">
 
-         <%--<div id="search" class="input-append">--%>
+        <div id="search" class="input-append">
             <%--<input type="text" size="20" name="q" id="query" value="${param.q}"
                    placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>
             --%>
-        <%--</div>--%>
+        </div>
 
-        <div id="actions" class="form-actions">
-            <s:a action="sections" cssClass="btn btn-primary" type="button" theme="simple">
-                <fmt:message key="button.back"/>
-            </s:a>
-
-            <s:url var="createNewConfigurationLink" action="editConfiguration">
-                <s:param name="parentSectionId" value="parentSectionId" />
-            </s:url>
-            <s:a href="%{createNewConfigurationLink}" cssClass="btn btn-link" type="button" theme="simple">
+        <div id="sectionActions" class="form-actions">
+            <s:url var="createNewSectionLink" action="editSection" />
+            <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
                 <fmt:message key="button.add"/>
             </s:a>
-
-            <s:url var="importConfigurationLink" action="setImportConfigurations">
-                <s:param name="parentSectionId" value="parentSectionId" />
-            </s:url>
-            <s:a href="%{importConfigurationLink}" cssClass="btn btn-info" type="button" theme="simple">
-                <fmt:message key="button.import"/>
-            </s:a>
-
-            <s:submit type="button" cssClass="btn btn-info" theme="simple" key="button.export" method="exportSelected" >
-                <fmt:message key="button.export"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-success" theme="simple" key="button.activate" method="activateSelected" >
-                <fmt:message key="button.activate"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-warning" theme="simple" key="button.deactivate" method="deactivateSelected" >
-                <fmt:message key="button.deactivate"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-danger" theme="simple" key="button.delete" method="deleteSelected" >
+            <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">
                 <fmt:message key="button.delete"/>
             </s:submit>
         </div>
 
-        <s:hidden name="parentSectionId" value="%{parentSectionId}" />
+        <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
+        <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize="20">
 
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="false" pagesize="20">
-
-            <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
-            <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
-            <display:column titleKey="configuration.select" media="html">
-                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
+            <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
+            <display:column titleKey="section.select" media="html" >
+                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}"/>
             </display:column>
-            <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
-            <%--<display:column property="name" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.name">--%>
-            <display:column property="name" sortable="true" href="editConfiguration" media="html" titleKey="configuration.name" paramId="id" paramProperty="id"/>
-                <%--<s:param name="id" value="id"/>--%>
-            <%--</display:column>--%>
-            <display:column property="description" sortable="true" titleKey="configuration.description"/>
+            <display:column titleKey="section.count" media="html" sortable="false" property="configurationsSize" />
+            <display:column titleKey="section.name" media="html" sortable="true" href="configurations" property="name" paramId="parentSectionId" paramProperty="id" />
+            <display:column titleKey="section.description" sortable="true" property="description" />
+            <display:column titleKey="section.edit" media="html" sortable="false" href="editSection" paramId="sectionId" paramProperty="id"  >
+                <fmt:message key="section.edit"/>
+            </display:column>
+
+            <%--<display:column sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.edit"/>--%>
 
             <%--Хрипушин А.В. Русификация display tag-ов--%>
             <display:setProperty name="export.banner"><div class="exportlinks"> <fmt:message key="configurationList.export.banner"/>{0} </div></display:setProperty>
@@ -112,12 +88,11 @@
             <display:setProperty name="paging.banner.page.link"><a href="{1}" title=<fmt:message key="configurationList.paging.banner.link"/> {0}>{0}</a></display:setProperty>
             <display:setProperty name="basic.msg.empty_list"><fmt:message key="configurationList.basic.msg.empty_list"/></display:setProperty>
 
-
             <%--<display:setProperty name="export.excel.filename"><fmt:message key="configurationList.title"/>.xls</display:setProperty>--%>
             <%--<display:setProperty name="export.csv.filename"><fmt:message key="configurationList.title"/>.csv</display:setProperty>--%>
             <%--<display:setProperty name="export.pdf.filename"><fmt:message key="configurationList.title"/>.pdf</display:setProperty>--%>
         </display:table>
 
-    </s:form>
+    </form>
 
 </div>

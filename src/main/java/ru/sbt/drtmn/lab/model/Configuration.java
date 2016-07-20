@@ -13,6 +13,7 @@ import ru.sbt.drtmn.lab.xml.ParamList;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.List;
@@ -40,12 +41,12 @@ import java.util.List;
         query = " from Configuration c where c.name = :name"
     ),
     @NamedQuery(
-        name = "findAllConfigurationsBySectionId",
+        name = "findAllConfigurationsBySection",
         query = " from Configuration c where c.section = :section"
     )
 })
 @XmlRootElement
-@XmlType(propOrder = {"id", "name", "description", "section", "active", "inputParams", "outputParams", "messageTemplate"})
+@XmlType(propOrder = {"id", "name", "description", "active", "inputParams", "outputParams", "messageTemplate"})
 public class Configuration extends GenericModel implements Serializable {
     private static final long serialVersionUID = 3690197650654049848L;
 
@@ -92,6 +93,7 @@ public class Configuration extends GenericModel implements Serializable {
         return this.description;
     }
 
+    @XmlTransient
     @ManyToOne
     @JoinColumn(name = "SECTION_ID")
     public Section getSection() { return this.section; }
@@ -138,7 +140,6 @@ public class Configuration extends GenericModel implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    @XmlElement
     public void setSection(Section section) {
         this.section = section;
     }

@@ -145,10 +145,6 @@
             <element id="library" level="project" name="javax.jms" />
             <element id="library" level="project" name="dhbcore" />
             <element id="library" level="project" name="camel-jms-2.11.0" />
-            <element id="library" level="project" name="Maven: com.ibm.mq:commonservices:7.5.0.2" />
-            <element id="library" level="project" name="Maven: com.ibm.mq:jmqi:7.5.0.2" />
-            <element id="library" level="project" name="Maven: com.ibm.mq:mqjms:7.5.0.2" />
-            <element id="library" level="project" name="Maven: com.ibm:dhbcore:7.5.0.2" />
             <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0" />
             <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.1.13" />
             <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />

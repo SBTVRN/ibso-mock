@@ -76,6 +76,7 @@
     </bean>
 
     <bean id="configurationManager" class="ru.sbt.drtmn.lab.service.ConfigurationManagerImpl" />
+    <bean id="sectionManager" class="ru.sbt.drtmn.lab.service.SectionManagerImpl" />
 
     <!-- Exchange Configurator-->
     <bean id="exchangeConfigurator" class="ru.sbt.drtmn.lab.bus.ExchangeConfigurator" init-method="init" lazy-init="false" destroy-method="destroy">

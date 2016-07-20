@@ -6,6 +6,7 @@
 </head>
 
 <c:set var="delObject" scope="request"><fmt:message key="configurationList.configuration"/></c:set>
+
 <script type="text/javascript">var msgDelConfirm =
    "<fmt:message key="delete.confirm"><fmt:param value="${delObject}"/></fmt:message>";
 
@@ -52,20 +53,38 @@ $(function() {
 
 </script>
 
-<h2><fmt:message key="configurationDetail.heading"/></h2>
+<h2>
+    <fmt:message key="configurationDetail.heading"/>
+    <s:property value="name" />
+</h2>
+
+
+<%--<s:a href="configurations" name="session" value="session">--%>
+    <%--<fmt:message key="button.back"/>--%>
+<%--</s:a>--%>
+
+<%--<s:submit type="button" cssClass="btn btn-primary" src="configurationList.jsp" method="listConfigurationsBySection" key="button.back" theme="simple" name="session" value="session">--%>
+    <%--<fmt:message key="button.back"/>--%>
+<%--</s:submit>--%>
 
 
 <div id="actions" class="form-actions">
-    <a class="btn btn-primary" href="<c:url value='/configurations'/>" >
-        <i class="icon-plus icon-white"></i><fmt:message key="button.back"/>
-    </a>
+    <s:url var="backLink" action="configurations">
+        <s:param name="parentSectionId" value="parentSection.id" />
+    </s:url>
+    <s:a href="%{backLink}" cssClass="btn btn-primary" type="button" theme="simple">
+        <fmt:message key="button.back"/>
+    </s:a>
 </div>
 <br />
-<s:form id="configurationForm"  theme="bootstrap" action="saveConfiguration" method="post" cssClass="form-horizontal well" validate="true">
 
-    <s:hidden key="configuration.id" name="messageConfiguration.id"/>
-    <s:textfield key="configuration.name" name="messageConfiguration.name" />
-    <s:textarea cols="60" rows="1" key="configuration.description" name="messageConfiguration.description"/>
+<s:form id="configurationForm" theme="bootstrap" action="saveConfiguration" method="post" cssClass="form-horizontal well" validate="true">
+
+    <s:hidden key="configuration.id" name="msgConfiguration.id"/>
+    <%--<s:hidden key="configuration.sectionId" name="messageConfiguration.sectionId"/>--%>
+    <s:textfield key="configuration.name" name="msgConfiguration.name" />
+    <s:textfield key="configuration.parentSection" name="msgConfiguration.section.id" />
+    <s:textarea cols="60" rows="1" key="configuration.description" name="msgConfiguration.description"/>
 
     <br>
     <button id="add_input_param" type="button" class="btn btn-primary"><fmt:message key="configuration.addInputParameter"/></button>
@@ -75,10 +94,10 @@ $(function() {
             <th style="width:15%;"><fmt:message key="configuration.ParameterName"/></th>
             <th><fmt:message key="configuration.ParameterValue"/></th>
         </tr>
-        <s:iterator value="messageConfiguration.inputParameterList" status="status" var="param">
+        <s:iterator value="msgConfiguration.inputParameterList" status="status" var="param">
             <tr id="input_param">
-                <td><s:textfield value="%{#param.name}" name="messageConfiguration.inputParameterList[%{#status.index}].name"/></td>
-                <td><s:textfield size="60" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>
+                <td><s:textfield value="%{#param.name}" name="msgConfiguration.inputParameterList[%{#status.index}].name"/></td>
+                <td><s:textfield size="60" value="%{#param.value}" name="msgConfiguration.inputParameterList[%{#status.index}].value"/></td>
             </tr>
         </s:iterator>
     </table>
@@ -90,31 +109,30 @@ $(function() {
             <th style="width:15%;"><fmt:message key="configuration.ParameterName"/></th>
             <th><fmt:message key="configuration.ParameterValue"/></th>
         </tr>
-        <s:iterator value="messageConfiguration.outputParameterList" status="stat" var="param">
+        <s:iterator value="msgConfiguration.outputParameterList" status="stat" var="param">
             <tr>
-                <td><s:textfield value="%{#param.name}" name="messageConfiguration.outputParameterList[%{#stat.index}].name"/></td>
-                <td><s:textarea cols="60" rows="1" value="%{#param.value}" name="messageConfiguration.outputParameterList[%{#stat.index}].value"/></td>
+                <td><s:textfield value="%{#param.name}" name="msgConfiguration.outputParameterList[%{#stat.index}].name"/></td>
+                <td><s:textarea cols="60" rows="1" value="%{#param.value}" name="msgConfiguration.outputParameterList[%{#stat.index}].value"/></td>
             </tr>
         </s:iterator>
     </table>
 
     <div>
-    <s:textarea cols="80" rows="20" key="configuration.messageTemplate" name="messageConfiguration.messageTemplate"  required="false" />
+    <s:textarea cols="80" rows="20" key="configuration.messageTemplate" name="msgConfiguration.messageTemplate" required="false" />
     </div>
 
     <br>
     <div id="actions" class="form-actions">
         <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
-            <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
+            <fmt:message key="button.save"/>
         </s:submit>
-        <c:if test="${not empty messageConfiguration.id}">
-            <s:submit type="button" cssClass="btn btn-warning" method="delete" key="button.delete"
-                      onclick="return confirmMessage(msgDelConfirm)" theme="simple">
-                <i class="icon-trash icon-white"></i> <fmt:message key="button.delete"/>
+        <c:if test="${not empty configuration.id}">
+            <s:submit type="button" cssClass="btn btn-warning" method="delete" key="button.delete" onclick="return confirmMessage(msgDelConfirm)" theme="simple">
+                <fmt:message key="button.delete"/>
             </s:submit>
         </c:if>
         <s:submit type="button" cssClass="btn" method="cancel" key="button.cancel" theme="simple">
-            <i class="icon-remove"></i> <fmt:message key="button.cancel"/>
+            <fmt:message key="button.cancel"/>
         </s:submit>
     </div>
 </s:form>
