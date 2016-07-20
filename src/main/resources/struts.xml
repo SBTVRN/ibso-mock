@@ -51,6 +51,11 @@
         </global-exception-mappings>
 
         <!-- List of configurations -->
+        <action name="pageSizeChange" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        </action>
+
+        <!-- List of configurations -->
         <action name="configurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
             <result name="input">/WEB-INF/pages/configurationList.jsp</result>
@@ -110,4 +115,6 @@
         <!--</action>-->
 
     </package>
+
+
 </struts>

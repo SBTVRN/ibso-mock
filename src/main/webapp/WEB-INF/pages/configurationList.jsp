@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
@@ -15,39 +16,61 @@
                    placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>
             --%>
         </div>
+<table width="100%">
+    <tr>
+        <td>
+            <div id="actions" class="form-actions">
+                <%--<a class="btn btn-primary" href="<c:url value='/editConfiguration'/>" >--%>
+                    <%--<i class="icon-plus icon-white"></i> <fmt:message key="button.add"/>--%>
+                <%--</a>--%>
+                <%--<a class="btn btn-info" href="<c:url value='/setImportConfigurations'/>" >--%>
+                    <%--<i class="icon-plus icon-white"></i> <fmt:message key="button.import"/>--%>
+                <%--</a>--%>
+                <s:submit type="button" cssClass="btn btn-primary" action="editConfiguration" value="Новый" theme="simple"/>
+                <s:submit type="button" cssClass="btn btn-info" action="setImportConfigurations" key="button.import" theme="simple">
+                    <i class="icon-remove"></i> <fmt:message key="button.import"/>
+                </s:submit>
+                <s:submit type="button" cssClass="btn btn-info" method="exportSelected" key="button.export" theme="simple">
+                    <i class="icon-remove"></i> <fmt:message key="button.export"/>
+                </s:submit>
+                <s:submit type="button" cssClass="btn btn-success" method="activateSelected" key="button.activate" theme="simple">
+                    <i class="icon-remove"></i> <fmt:message key="button.activate"/>
+                </s:submit>
+                <s:submit type="button" cssClass="btn btn-warning" method="deactivateSelected" key="button.deactivate" theme="simple">
+                    <i class="icon-remove"></i> <fmt:message key="button.deactivate"/>
+                </s:submit>
+                <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple">
+                    <i class="icon-remove"></i> <fmt:message key="button.delete"/>
+                </s:submit>
+                <%--<s:submit type="button" cssClass="btn btn-default" method="/editConfiguration" key="button.history" theme="simple">--%>
+                    <%--<i class="icon-remove"></i> <fmt:message key="button.history"/>--%>
+                <%--</s:submit>--%>
+            </div>
+        </td>
+        <td align="right">
+            <s:form>
+                <s:url action="pageSizeChange" var="pageSize10">
+                    <s:param name="pageSize">1</s:param>
+                </s:url>
+                <s:url action="pageSizeChange" var="pageSize20">
+                    <s:param name="pageSize">2</s:param>
+                </s:url>
+                <s:url action="pageSizeChange" var="pageSizeAll">
+                    <s:param name="pageSize">9999</s:param>
+                </s:url>
+               <p>Выводить по: <a href="${pageSize10}">10</a> | <a href="${pageSize20}">20</a> | <a href="${pageSizeAll}">Все</a> </p>
+            </s:form>
+        </td>
+    </tr>
+</table>
 
-        <div id="actions" class="form-actions">
-            <a class="btn btn-primary" href="<c:url value='/editConfiguration'/>" >
-                <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/>
-            </a>
-            <a class="btn btn-info" href="<c:url value='/setImportConfigurations'/>" >
-                <i class="icon-plus icon-white"></i> <fmt:message key="button.import"/>
-            </a>
-            <s:submit type="button" cssClass="btn btn-info" method="exportSelected" key="button.export" theme="simple">
-                <i class="icon-remove"></i> <fmt:message key="button.export"/>
-            </s:submit>
-            <s:submit type="button" cssClass="btn btn-success" method="activateSelected" key="button.activate" theme="simple">
-                <i class="icon-remove"></i> <fmt:message key="button.activate"/>
-            </s:submit>
-            <s:submit type="button" cssClass="btn btn-warning" method="deactivateSelected" key="button.deactivate" theme="simple">
-                <i class="icon-remove"></i> <fmt:message key="button.deactivate"/>
-            </s:submit>
-            <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple" onclick="return confirmDeleteConfiguration('msg_confirm_delete_configurations');">
-                <i class="icon-remove"></i> <fmt:message key="button.delete"/>
-            </s:submit>
-            <%--<s:submit type="button" cssClass="btn btn-default" method="/editConfiguration" key="button.history" theme="simple">--%>
-                <%--<i class="icon-remove"></i> <fmt:message key="button.history"/>--%>
-            <%--</s:submit>--%>
-        </div>
-
-
-
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true" pagesize="20">
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true"
+                       pagesize='${requestScope.get("pageSize")}'>
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
             <display:column titleKey="configuration.select" media="html">
-                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
+                <input title="" type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
             </display:column>
             <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
             <display:column property="name" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.name"/>
@@ -72,10 +95,10 @@
             <display:setProperty name="paging.banner.full">
                 <span class="pagelinks">
                     [<a href="{1}"><fmt:message key="configurationList.paging.banner.first"/></a>
-                    /<a href="{2}"><fmt:message key="configurationList.paging.banner.prev"/></a></a>]
+                    /<a href="{2}"><fmt:message key="configurationList.paging.banner.prev"/></a>]
                     {0}
-                    [<a href="{3}"><fmt:message key="configurationList.paging.banner.next"/></a></a>
-                    /<a href="{4}"><fmt:message key="configurationList.paging.banner.last"/></a></a>]
+                    [<a href="{3}"><fmt:message key="configurationList.paging.banner.next"/></a>
+                    /<a href="{4}"><fmt:message key="configurationList.paging.banner.last"/></a>]
                 </span>
             </display:setProperty>
             <display:setProperty name="paging.banner.first">

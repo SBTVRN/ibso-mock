@@ -1,7 +1,6 @@
 package ru.sbt.drtmn.lab.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import ru.sbt.drtmn.lab.model.Configuration;
 import ru.sbt.drtmn.lab.service.ConfigurationManager;
@@ -30,6 +29,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     private Long id;
     private String query;
     private List<Long> selectedBox;
+    private static String pageSize;
 
     /**
      * Grab the entity from the database before populating with request parameters
@@ -39,7 +39,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             // prevent failures on new
             String configurationId = getRequest().getParameter("configuration.id");
             if (configurationId != null && !configurationId.equals("")) {
-                configuration = (Configuration) configurationManager.get(new Long(configurationId));
+                configuration = configurationManager.get(new Long(configurationId));
             }
         }
     }
@@ -95,7 +95,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public String edit() {
         if (id != null) {
-            configuration = (Configuration) configurationManager.get(id);
+            configuration = configurationManager.get(id);
         } else {
             configuration = new Configuration();
         }
@@ -212,9 +212,21 @@ public class ConfigurationAction extends GenericAction implements Preparable {
                 } catch(IOException ioe) {
                     logger.error("Error when transferring file to the user: " + exportedFile, ioe);
                 } finally {
-                    try {  in.close(); } catch (IOException e) { logger.warn("Error when closing FileInputStream: " + exportedFile, e); }
-                    try { out.flush(); } catch (IOException e) { logger.warn("Error when flushing: " + exportedFile, e);  }
-                    try { out.close(); } catch (IOException e) { logger.warn("Error when closing ServletOutputStream: " + exportedFile, e);  }
+                    try {
+                        if (in != null) {
+                            in.close();
+                        }
+                    } catch (IOException e) { logger.warn("Error when closing FileInputStream: " + exportedFile, e); }
+                    try {
+                        if (out != null) {
+                            out.flush();
+                        }
+                    } catch (IOException e) { logger.warn("Error when flushing: " + exportedFile, e);  }
+                    try {
+                        if (out != null) {
+                            out.close();
+                        }
+                    } catch (IOException e) { logger.warn("Error when closing ServletOutputStream: " + exportedFile, e);  }
                 }
             }
         } catch (SearchException se) {
@@ -283,4 +295,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         return configuration;
     }
 
+    public String getPageSize() {return pageSize;}
+
+    public void setPageSize(String pageSize) {ConfigurationAction.pageSize = pageSize;}
 }
