@@ -29,7 +29,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     private Long id;
     private String query;
     private List<Long> selectedBox;
-    private static String pageSize;
+    private String pageSize = "10";
 
     /**
      * Grab the entity from the database before populating with request parameters
@@ -297,5 +297,9 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public String getPageSize() {return pageSize;}
 
-    public void setPageSize(String pageSize) {ConfigurationAction.pageSize = pageSize;}
+    public void setPageSize(String pageSize) {this.pageSize = pageSize;}
+
+    public String getQuery() {return query;}
+
+    public void setQuery(String query) {this.query = query;}
 }

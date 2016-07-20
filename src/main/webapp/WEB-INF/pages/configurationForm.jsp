@@ -79,8 +79,8 @@ $(function() {
         <s:iterator value="messageConfiguration.inputParameterList" status="status" var="param">
             <tr id="input_param">
                 <td><s:textfield value="%{#param.name}" name="messageConfiguration.inputParameterList[%{#status.index}].name"/></td>
-                <td><s:textarea cols="100" rows="1" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>
                 <%--<td><s:textfield size="60" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>--%>
+                <td><s:textarea cols="60" rows="1" value="%{#param.value}" name="messageConfiguration.inputParameterList[%{#status.index}].value"/></td>
             </tr>
         </s:iterator>
     </table>
@@ -95,7 +95,7 @@ $(function() {
         <s:iterator value="messageConfiguration.outputParameterList" status="stat" var="param">
             <tr>
                 <td><s:textfield value="%{#param.name}" name="messageConfiguration.outputParameterList[%{#stat.index}].name"/></td>
-                <td><s:textarea cols="100" rows="1" value="%{#param.value}" name="messageConfiguration.outputParameterList[%{#stat.index}].value"/></td>
+                <td><s:textarea cols="60" rows="1" value="%{#param.value}" name="messageConfiguration.outputParameterList[%{#stat.index}].value"/></td>
             </tr>
         </s:iterator>
     </table>

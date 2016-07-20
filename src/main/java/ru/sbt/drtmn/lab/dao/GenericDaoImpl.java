@@ -99,6 +99,12 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
     public List<T> search(String searchTerm) throws SearchException {
         Session sess = getSession();
         FullTextSession txtSession = Search.getFullTextSession(sess);
+        try {
+            txtSession.createIndexer().startAndWait();
+        } catch (InterruptedException ex) {
+            logger.error("Parse exception when creating lucene indexes", ex);
+            throw new SearchException(ex);
+        }
         org.apache.lucene.search.Query qry;
         try {
             qry = SearchTools.generateQuery(searchTerm, this.persistentClass, sess, defaultAnalyzer);

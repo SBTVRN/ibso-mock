@@ -11,11 +11,17 @@
 
     <form method="get" action="${ctx}/actions" id="searchForm" class="form-search">
 
-        <div id="search" class="input-append">
-            <%--<input type="text" size="20" name="q" id="query" value="${param.q}"
-                   placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>
-            --%>
-        </div>
+        <%--<div id="search" class="input-append">--%>
+            <%--<input type="text" size="20" name="q" id="query" value="${param.q}"--%>
+                   <%--placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>--%>
+        <%--</div>--%>
+
+
+            <s:property value="query"/>
+
+
+
+
 <table width="100%">
     <tr>
         <td>
@@ -39,7 +45,7 @@
                 <s:submit type="button" cssClass="btn btn-warning" method="deactivateSelected" key="button.deactivate" theme="simple">
                     <i class="icon-remove"></i> <fmt:message key="button.deactivate"/>
                 </s:submit>
-                <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple">
+                <s:submit type="button" cssClass="btn btn-danger" method="deleteSelected" key="button.delete" theme="simple" onclick="return confirmDeleteConfiguration()">
                     <i class="icon-remove"></i> <fmt:message key="button.delete"/>
                 </s:submit>
                 <%--<s:submit type="button" cssClass="btn btn-default" method="/editConfiguration" key="button.history" theme="simple">--%>
@@ -47,15 +53,20 @@
                 <%--</s:submit>--%>
             </div>
         </td>
-        <td align="right">
+        <td align="left">
             <s:form>
-                <s:url action="pageSizeChange" var="pageSize10">
+                <s:textfield name="query" label="search" /><s:submit value=">" action="search"/>
+            </s:form>
+        </td>
+        <td align="right">
+            <s:form action="pageSizeChange">
+                <s:url var="pageSize10">
                     <s:param name="pageSize">1</s:param>
                 </s:url>
-                <s:url action="pageSizeChange" var="pageSize20">
+                <s:url var="pageSize20">
                     <s:param name="pageSize">2</s:param>
                 </s:url>
-                <s:url action="pageSizeChange" var="pageSizeAll">
+                <s:url var="pageSizeAll">
                     <s:param name="pageSize">9999</s:param>
                 </s:url>
                <p>Выводить по: <a href="${pageSize10}">10</a> | <a href="${pageSize20}">20</a> | <a href="${pageSizeAll}">Все</a> </p>
@@ -65,7 +76,7 @@
 </table>
 
         <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="true"
-                       pagesize='${requestScope.get("pageSize")}'>
+                       pagesize='${requestScope.get("pageSize")}' keepStatus="true">
 
             <display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>

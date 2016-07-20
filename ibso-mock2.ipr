@@ -199,30 +199,27 @@
           <element id="directory" name="lib">
             <element id="library" level="project" name="Maven: com.h2database:h2:1.3.170" />
             <element id="library" level="project" name="Maven: com.jgeppert.struts2.bootstrap:struts2-bootstrap-plugin:1.5.2" />
-            <element id="library" level="project" name="Maven: org.apache.struts:struts2-core:2.3.8" />
             <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.5" />
-            <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
-            <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
-            <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
             <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
             <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+            <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
             <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
             <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+            <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
             <element id="library" level="project" name="Maven: displaytag:displaytag:1.2" />
             <element id="library" level="project" name="Maven: com.lowagie:itext:1.3" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.4.2" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
-            <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
             <element id="library" level="project" name="Maven: javassist:javassist:3.12.1.GA" />
             <element id="library" level="project" name="Maven: javax.mail:mail:1.4.1" />
             <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
             <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
             <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.2" />
             <element id="library" level="project" name="Maven: javax.xml.stream:stax-api:1.0-2" />
+            <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.2" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-web:2.0.4" />
             <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
-            <element id="library" level="project" name="Maven: commons-io:commons-io:2.0.1" />
             <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
             <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-frontend-jaxrs:2.7.0" />
             <element id="library" level="project" name="Maven: org.apache.cxf:cxf-api:2.7.0" />
@@ -245,18 +242,25 @@
             <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-ws-addr:2.7.0" />
             <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-ws-policy:2.7.0" />
             <element id="library" level="project" name="Maven: org.apache.neethi:neethi:3.0.2" />
+            <element id="library" level="project" name="Maven: org.apache.struts:struts2-core:2.3.8" />
             <element id="library" level="project" name="Maven: org.apache.struts.xwork:xwork-core:2.3.8" />
-            <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.1" />
-            <element id="library" level="project" name="Maven: ognl:ognl:3.0.6" />
             <element id="library" level="project" name="Maven: asm:asm-commons:3.3" />
             <element id="library" level="project" name="Maven: asm:asm-tree:3.3" />
             <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.19" />
+            <element id="library" level="project" name="Maven: ognl:ognl:3.0.6" />
             <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
+            <element id="library" level="project" name="Maven: commons-io:commons-io:2.0.1" />
             <element id="library" level="project" name="Maven: org.apache.struts:struts2-convention-plugin:2.3.8" />
+            <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.1" />
             <element id="library" level="project" name="Maven: org.apache.struts:struts2-spring-plugin:2.3.8" />
             <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.10" />
             <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.10" />
-            <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+            <element id="library" level="project" name="Maven: jaxen:jaxen:1.0-FCS" />
+            <element id="library" level="project" name="Maven: saxpath:saxpath:1.0-FCS" />
+            <element id="library" level="project" name="Maven: msv:msv:20020414" />
+            <element id="library" level="project" name="Maven: relaxngDatatype:relaxngDatatype:20020414" />
+            <element id="library" level="project" name="Maven: isorelax:isorelax:20020414" />
+            <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.3.03" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.7.1" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.7.1" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.7.1" />
@@ -264,18 +268,19 @@
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-search:4.1.1.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-search-orm:4.1.1.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-search-engine:4.1.1.Final" />
-            <element id="library" level="project" name="Maven: org.hibernate:hibernate-search-analyzers:4.1.1.Final" />
-            <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" />
-            <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:3.5.0" />
-            <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.GA" />
             <element id="library" level="project" name="Maven: org.apache.avro:avro:1.5.1" />
             <element id="library" level="project" name="Maven: com.thoughtworks.paranamer:paranamer:2.3" />
             <element id="library" level="project" name="Maven: org.xerial.snappy:snappy-java:1.0.1-rc3" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.1.8.Final" />
             <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+            <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.GA" />
             <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final" />
+            <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
             <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
             <element id="library" level="project" name="Maven: org.javassist:javassist:3.15.0-GA" />
+            <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-search-analyzers:4.1.1.Final" />
+            <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:3.5.0" />
             <element id="library" level="project" name="Maven: org.apache.lucene:lucene-analyzers:3.5.0" />
             <element id="library" level="project" name="Maven: org.apache.solr:solr-analysis-extras:3.5.0" />
             <element id="library" level="project" name="Maven: org.apache.solr:solr-core:3.5.0" />
@@ -293,12 +298,9 @@
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:4.1.8.Final" />
             <element id="library" level="project" name="Maven: org.hibernate.java-persistence:jpa-api:2.0-cr-1" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.1.8.Final" />
-            <element id="library" level="project" name="Maven: org.jmock:jmock:2.5.1" />
             <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
             <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-library:1.1" />
-            <element id="library" level="project" name="Maven: org.jmock:jmock-junit4:2.5.1" />
             <element id="library" level="project" name="Maven: junit:junit-dep:4.4" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-test:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.3.RELEASE" />
@@ -306,12 +308,12 @@
             <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.1.3.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.1.3.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.3.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.3.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.3.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.1.3.RELEASE" />
@@ -325,11 +327,12 @@
             <element id="library" level="project" name="Maven: org.webjars:jquery:1.8.2" />
             <element id="library" level="project" name="Maven: struts-menu:struts-menu:2.4.3" />
             <element id="library" level="project" name="Maven: commons-digester:commons-digester:1.7" />
-            <element id="library" level="project" name="Maven: velocity:velocity:1.5" />
             <element id="library" level="project" name="Maven: velocity-tools:velocity-tools-view:1.0" />
+            <element id="library" level="project" name="Maven: velocity:velocity:1.5" />
+            <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
             <element id="library" level="project" name="Maven: org.apache.camel:camel-jms:2.11.0" />
-            <element id="library" level="project" name="Maven: org.apache.camel:camel-core:2.11.0" />
             <element id="library" level="project" name="Maven: org.apache.camel:camel-spring:2.11.0" />
+            <element id="library" level="project" name="Maven: org.apache.camel:camel-core:2.11.0" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -406,25 +409,23 @@
   <component name="JUnitProjectSettings">
     <option name="TEST_RUNNER" value="UI" />
   </component>
-  <component name="JavaScriptLibraryMappings">
-    <includedPredefinedLibrary name="ECMAScript 6" />
-  </component>
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../../../tmp" />
     <option name="OPTION_SCOPE" value="protected" />
-    <option name="OPTION_HIERARCHY" value="false" />
-    <option name="OPTION_NAVIGATOR" value="false" />
-    <option name="OPTION_INDEX" value="false" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
     <option name="OPTION_SEPARATE_INDEX" value="false" />
-    <option name="OPTION_USE_1_1" value="false" />
-    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
-    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
-    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
-    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false" />
-    <option name="OPTION_DEPRECATED_LIST" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
     <option name="OTHER_OPTIONS" />
     <option name="HEAP_SIZE" />
-    <option name="OPEN_IN_BROWSER" value="false" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OPTION_INCLUDE_LIBS" value="false" />
   </component>
   <component name="JikesSettings">
     <option name="DEBUGGING_INFO" value="true" />
@@ -583,10 +584,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ibso-mock2.iml" filepath="$PROJECT_DIR$/ibso-mock2.iml" />
     </modules>
-  </component>
-  <component name="ProjectResources">
-    <resource url="http://jakarta.apache.org/log4j/" location="$PROJECT_DIR$/../../DTD/log4j.dtd" />
-    <resource url="http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd" location="$MAVEN_REPOSITORY$/org/apache/struts/xwork/xwork-core/2.3.8/xwork-core-2.3.8.jar!/xwork-validator-1.0.2.dtd" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
   <component name="VcsDirectoryMappings">
@@ -856,18 +853,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/lowagie/itext/1.3/itext-1.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.oracle:ojdbc6:11.2.0">
-      <CLASSES>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/com/oracle/ojdbc6/11.2.0" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/com/oracle/ojdbc6/11.2.0" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/com/oracle/ojdbc6/11.2.0" />
-      </SOURCES>
-      <jarDirectory url="file://$PROJECT_DIR$/../../.m2/repository/com/oracle/ojdbc6/11.2.0" recursive="false" />
-    </library>
     <library name="Maven: com.sun.xml.bind:jaxb-impl:2.1.13">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.1.13/jaxb-impl-2.1.13.jar!/" />
@@ -1065,18 +1050,6 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-sources.jar!/" />
       </SOURCES>
-    </library>
-    <library name="Maven: javax.jms:jms:1.3.1_02">
-      <CLASSES>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/javax/jms/jms/1.3.1_02" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/javax/jms/jms/1.3.1_02" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../.m2/repository/javax/jms/jms/1.3.1_02" />
-      </SOURCES>
-      <jarDirectory url="file://$PROJECT_DIR$/../../.m2/repository/javax/jms/jms/1.3.1_02" recursive="false" />
     </library>
     <library name="Maven: javax.mail:mail:1.4.1">
       <CLASSES>
@@ -1801,8 +1774,8 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/velocity/velocity/1.5/velocity-1.5-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$USER_HOME$/.ideaLibSources/velocity-1.5-sources.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/velocity/velocity/1.5/velocity-1.5-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.ideaLibSources/velocity-1.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.apache.ws.xmlschema:xmlschema-core:2.0.3">
