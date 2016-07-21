@@ -24,6 +24,8 @@ public class SectionAction extends GenericAction implements Preparable {
     private Long sectionId;
     private List<Long> sectionSelectedBox;
     private String query;
+    // Variable for paginator
+    private Integer pageSize;
 
     /**
      * Grab the entity from the database before populating with request parameters
@@ -35,6 +37,12 @@ public class SectionAction extends GenericAction implements Preparable {
             if (sectionId != null && !sectionId.equals("")) {
                 currentSection = (Section)sectionManager.get(new Long(sectionId));
             }
+        }
+        if (getSession().getAttribute("pageSize") == null) {
+            this.pageSize = 20;
+            getSession().setAttribute("pageSize", this.pageSize);
+        } else {
+            this.pageSize = (Integer)getSession().getAttribute("pageSize");
         }
     }
 
@@ -138,5 +146,14 @@ public class SectionAction extends GenericAction implements Preparable {
 
     public void setQuery(String query) {
         this.query = query;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+        getSession().setAttribute("pageSize", this.pageSize);
     }
 }

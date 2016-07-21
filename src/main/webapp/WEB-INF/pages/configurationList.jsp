@@ -12,51 +12,73 @@
 
     <s:form action="configurationActions" id="searchForm" class="form-search" >
 
+
          <%--<div id="search" class="input-append">--%>
             <%--<input type="text" size="20" name="q" id="query" value="${param.q}"
                    placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>
             --%>
         <%--</div>--%>
 
-        <div id="actions" class="form-actions">
-            <s:a action="sections" cssClass="btn btn-primary" type="button" theme="simple">
-                <fmt:message key="button.back"/>
-            </s:a>
-
-            <s:url var="createNewConfigurationLink" action="editConfiguration">
-                <s:param name="parentSectionId" value="parentSectionId" />
-            </s:url>
-            <s:a href="%{createNewConfigurationLink}" cssClass="btn btn-link" type="button" theme="simple">
-                <fmt:message key="button.add"/>
-            </s:a>
-
-            <s:url var="importConfigurationLink" action="setImportConfigurations">
-                <s:param name="parentSectionId" value="parentSectionId" />
-            </s:url>
-            <s:a href="%{importConfigurationLink}" cssClass="btn btn-info" type="button" theme="simple">
-                <fmt:message key="button.import"/>
-            </s:a>
-
-            <s:submit type="button" cssClass="btn btn-info" theme="simple" key="button.export" method="exportSelected" >
-                <fmt:message key="button.export"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-success" theme="simple" key="button.activate" method="activateSelected" >
-                <fmt:message key="button.activate"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-warning" theme="simple" key="button.deactivate" method="deactivateSelected" >
-                <fmt:message key="button.deactivate"/>
-            </s:submit>
-
-            <s:submit type="button" cssClass="btn btn-danger" theme="simple" key="button.delete" method="deleteSelected" >
-                <fmt:message key="button.delete"/>
-            </s:submit>
-        </div>
-
         <s:hidden name="parentSectionId" value="%{parentSectionId}" />
 
-        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="false" pagesize="20">
+        <table width="100%">
+            <tr>
+                <td>
+                    <div id="actions" class="form-actions">
+                        <s:a theme="simple" cssClass="btn btn-primary" type="button" action="sections">
+                            <fmt:message key="button.back"/>
+                        </s:a>
+
+                        <s:url var="createNewConfigurationLink" action="editConfiguration">
+                            <s:param name="parentSectionId" value="parentSectionId" />
+                        </s:url>
+                        <s:a theme="simple" cssClass="btn btn-link" type="button" href="%{createNewConfigurationLink}" >
+                            <fmt:message key="button.add"/>
+                        </s:a>
+
+                        <s:url var="importConfigurationLink" action="setImportConfigurations">
+                            <s:param name="parentSectionId" value="parentSectionId" />
+                        </s:url>
+                        <s:a theme="simple" cssClass="btn btn-info" type="button" href="%{importConfigurationLink}">
+                            <fmt:message key="button.import"/>
+                        </s:a>
+
+                        <s:submit theme="simple" key="button.export" cssClass="btn btn-info" method="exportSelected" />
+
+                        <s:submit theme="simple" key="button.activate" cssClass="btn btn-success" method="activateSelected" />
+
+                        <s:submit theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" />
+
+                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" />
+                    </div>
+                </td>
+                <td align="right">
+                    <s:url var="configurationsWithPageSize10" action="configurations">
+                        <s:param name="parentSectionId" value="parentSectionId" />
+                        <s:param name="pageSize" value="10" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize10}" >
+                        <fmt:message key="button.10"/>
+                    </s:a>
+                    <s:url var="configurationsWithPageSize20" action="configurations">
+                        <s:param name="parentSectionId" value="parentSectionId" />
+                        <s:param name="pageSize" value="20" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize20}" >
+                        <fmt:message key="button.20"/>
+                    </s:a>
+                    <s:url var="configurationsWithPageSizeAll" action="configurations">
+                        <s:param name="parentSectionId" value="parentSectionId" />
+                        <s:param name="pageSize" value="99999" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSizeAll}" >
+                        <fmt:message key="button.All"/>
+                    </s:a>
+                </td>
+            </tr>
+        </table>
+
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="false" pagesize='${pageSize}'>
 
             <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
@@ -112,10 +134,6 @@
             <display:setProperty name="paging.banner.page.link"><a href="{1}" title=<fmt:message key="configurationList.paging.banner.link"/> {0}>{0}</a></display:setProperty>
             <display:setProperty name="basic.msg.empty_list"><fmt:message key="configurationList.basic.msg.empty_list"/></display:setProperty>
 
-
-            <%--<display:setProperty name="export.excel.filename"><fmt:message key="configurationList.title"/>.xls</display:setProperty>--%>
-            <%--<display:setProperty name="export.csv.filename"><fmt:message key="configurationList.title"/>.csv</display:setProperty>--%>
-            <%--<display:setProperty name="export.pdf.filename"><fmt:message key="configurationList.title"/>.pdf</display:setProperty>--%>
         </display:table>
 
     </s:form>

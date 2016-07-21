@@ -76,4 +76,15 @@ public class ParamList {
         return this.paramList;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (paramList != null) {
+            for (Param p : paramList) {
+                sb.append(p).append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
 }

@@ -20,18 +20,44 @@
             --%>
         </div>
 
-        <div id="sectionActions" class="form-actions">
-            <s:url var="createNewSectionLink" action="editSection" />
-            <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
-                <fmt:message key="button.add"/>
-            </s:a>
-            <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">
-                <fmt:message key="button.delete"/>
-            </s:submit>
-        </div>
+        <table width="100%">
+            <tr>
+                <td>
+                    <div id="sectionActions" class="form-actions">
+                        <s:url var="createNewSectionLink" action="editSection" />
+                        <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
+                            <fmt:message key="button.add"/>
+                        </s:a>
+                        <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">
+                            <fmt:message key="button.delete"/>
+                        </s:submit>
+                    </div>
+                </td>
+                <td align="right">
+                    <s:url var="configurationsWithPageSize10" action="sections">
+                        <s:param name="pageSize" value="10" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize10}" >
+                        <fmt:message key="button.10"/>
+                    </s:a>
+                    <s:url var="configurationsWithPageSize20" action="sections">
+                        <s:param name="pageSize" value="20" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize20}" >
+                        <fmt:message key="button.20"/>
+                    </s:a>
+                    <s:url var="configurationsWithPageSizeAll" action="sections">
+                        <s:param name="pageSize" value="99999" />
+                    </s:url>
+                    <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSizeAll}" >
+                        <fmt:message key="button.All"/>
+                    </s:a>
+                </td>
+            </tr>
+        </table>
 
         <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
-        <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize="20">
+        <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize='${pageSize}'>
 
             <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
             <display:column titleKey="section.select" media="html" >

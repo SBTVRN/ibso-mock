@@ -85,10 +85,10 @@
         </action>
         <!-- Save configuration -->
         <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
-            <result name="cancel">/WEB-INF/pages/configurationForm.jsp</result>
-            <result name="delete">/WEB-INF/pages/configurationForm.jsp</result>
-            <result name="input">/WEB-INF/pages/configurationForm.jsp</result>
-            <result name="success">/WEB-INF/pages/configurationForm.jsp</result>
+            <result name="cancel">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="delete">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="input">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>
         <!-- Set import configuration -->
         <action name="setImportConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="setImportConfiguration">

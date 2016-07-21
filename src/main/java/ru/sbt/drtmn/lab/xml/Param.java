@@ -122,4 +122,9 @@ public class Param {
         this.description = value;
     }
 
+    @Override
+    public String toString() {
+        return "ParamName = " + name + ", ParamValue = " + value + ", ParamDescription = " + description;
+    }
+
 }

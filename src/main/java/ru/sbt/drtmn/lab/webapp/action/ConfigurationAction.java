@@ -40,6 +40,8 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     private Configuration configuration;
     private List<Long> selectedBox;
     private String query;
+    // Variable for paginator
+    private Integer pageSize;
 
     /**
      * Grab the entity from the database before populating with request parameters
@@ -51,6 +53,12 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             if (configurationId != null && !configurationId.equals("")) {
                 configuration = (Configuration)configurationManager.get(new Long(configurationId));
             }
+        }
+        if (getSession().getAttribute("pageSize") == null) {
+            this.pageSize = 20;
+            getSession().setAttribute("pageSize", this.pageSize);
+        } else {
+            this.pageSize = (Integer)getSession().getAttribute("pageSize");
         }
     }
 
@@ -80,9 +88,9 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public String activateSelected() {
         try {
-            Integer count  = configurationManager.activateMsgConfigurations(selectedBox);
             parentSection = (Section)sectionManager.get(new Long(parentSectionId));
             pageTitle = parentSection.getName();
+            Integer count  = configurationManager.activateMsgConfigurations(selectedBox);
             configurations = sectionManager.getSectionConfigurations(parentSection);
             logger.debug("Activated: " + count + " configurations");
         } catch (SearchException se) {
@@ -94,9 +102,9 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public String deactivateSelected() {
         try {
-            Integer count  = configurationManager.deactivateMsgConfigurations(selectedBox);
             parentSection = (Section)sectionManager.get(new Long(parentSectionId));
             pageTitle = parentSection.getName();
+            Integer count  = configurationManager.deactivateMsgConfigurations(selectedBox);
             configurations = sectionManager.getSectionConfigurations(parentSection);
             logger.debug("Deactivated: " + count + " configurations");
         } catch (SearchException se) {
@@ -108,9 +116,9 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public String deleteSelected() {
         try {
-            Integer count = configurationManager.deleteMsgConfigurations(selectedBox);
             parentSection = (Section)sectionManager.get(new Long(parentSectionId));
             pageTitle = parentSection.getName();
+            Integer count = configurationManager.deleteMsgConfigurations(selectedBox);
             configurations = sectionManager.getSectionConfigurations(parentSection);
             logger.debug("Deleted: " + count + " configurations");
         } catch (SearchException se) {
@@ -121,9 +129,10 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     }
 
     public String delete() {
-        configurationManager.remove(configuration.getId());
         parentSection = configuration.getSection();
         pageTitle = parentSection.getName();
+        parentSection.removeConfiguration(configuration);
+        configurationManager.remove(configuration.getId());
         configurations = sectionManager.getSectionConfigurations(parentSection);
         saveMessage(getText("configuration.deleted"));
         return SUCCESS;
@@ -157,6 +166,9 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         if (delete != null) { return delete(); }
         boolean isNew = (configuration.getId() == null);
         configuration.setActive(true);
+
+        logger.error("Config: " + configuration);
+
         configurationManager.save(configuration);
         parentSection = configuration.getSection();
         pageTitle = parentSection.getName();
@@ -406,5 +418,14 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public void setQuery(String query) {
         this.query = query;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+        getSession().setAttribute("pageSize", this.pageSize);
     }
 }

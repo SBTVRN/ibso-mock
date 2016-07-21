@@ -61,7 +61,7 @@ public class Section extends GenericModel implements Serializable {
         return this.description;
     }
 
-    @OneToMany(mappedBy = "section", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "section", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
     public Set<Configuration> getConfigurations() {
         return configurations;
     }
