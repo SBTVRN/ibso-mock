@@ -1,7 +1,3 @@
-<%--
-  Created by RazuvaevSV
-  Date: 13.07.2016
---%>
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
@@ -10,47 +6,38 @@
 <%--</head>--%>
 
 <div class="span10">
-    <h2><fmt:message key="sectionList.heading"/></h2>
+    <h2>
+        <fmt:message key="search.titleResult"/>
+    </h2>
 
-    <s:form action="search" cssClass="form-search" theme="simple">
-        <s:textfield name="query" id="search-field" theme="simple" />
-        <s:submit action="search" cssClass="btn btn-success" theme="simple" key="button.search" />
-    </s:form>
-
-    <form method="get" action="${ctx}/sectionActions" id="searchForm" class="form-search">
-
-        <%--<div id="search" class="input-append">--%>
-            <%--<input type="text" size="20" name="q" id="query" value="${param.q}"--%>
-               <%--placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>--%>
-        <%--</div>--%>
+    <s:form action="configurationActions" id="searchForm" class="form-search" >
 
         <table width="100%">
             <tr>
                 <td>
-                    <div id="sectionActions" class="form-actions">
-                        <s:url var="createNewSectionLink" action="editSection" />
-                        <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
-                            <fmt:message key="button.add"/>
+                    <div id="actions" class="form-actions">
+                        <s:a theme="simple" cssClass="btn btn-primary" type="button" action="sections">
+                            <fmt:message key="button.back"/>
                         </s:a>
-                        <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">
-                            <fmt:message key="button.delete"/>
-                        </s:submit>
                     </div>
                 </td>
                 <td align="right">
-                    <s:url var="configurationsWithPageSize10" action="sections">
+                    <s:url var="configurationsWithPageSize10" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="10" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize10}" >
                         <fmt:message key="button.10"/>
                     </s:a>
-                    <s:url var="configurationsWithPageSize20" action="sections">
+                    <s:url var="configurationsWithPageSize20" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="20" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize20}" >
                         <fmt:message key="button.20"/>
                     </s:a>
-                    <s:url var="configurationsWithPageSizeAll" action="sections">
+                    <s:url var="configurationsWithPageSizeAll" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="99999" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSizeAll}" >
@@ -60,21 +47,16 @@
             </tr>
         </table>
 
-        <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
-        <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize='${pageSize}'>
+        <%--<s:hidden name="query" value="%{query}" />--%>
 
-            <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
-            <display:column titleKey="section.select" media="html" >
-                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}"/>
-            </display:column>
-            <display:column titleKey="section.count" media="html" sortable="false" property="configurationsSize" />
-            <display:column titleKey="section.name" media="html" sortable="true" href="configurations" property="name" paramId="parentSectionId" paramProperty="id" />
-            <display:column titleKey="section.description" sortable="true" property="description" />
-            <display:column titleKey="section.edit" media="html" sortable="false" href="editSection" paramId="sectionId" paramProperty="id"  >
-                <fmt:message key="section.edit"/>
-            </display:column>
+        <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="false" pagesize='${pageSize}'>
 
-            <%--<display:column sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.edit"/>--%>
+            <display:column titleKey="configuration.select" media="html">
+                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
+            </display:column>
+            <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
+            <display:column property="name" sortable="true" href="editConfiguration?query=${query}&id=${id}"  media="html" titleKey="configuration.name" paramId="id" paramProperty="id" />
+            <display:column property="description" sortable="true" titleKey="configuration.description"/>
 
             <%--Хрипушин А.В. Русификация display tag-ов--%>
             <display:setProperty name="export.banner"><div class="exportlinks"> <fmt:message key="configurationList.export.banner"/>{0} </div></display:setProperty>
@@ -118,11 +100,8 @@
             <display:setProperty name="paging.banner.page.link"><a href="{1}" title=<fmt:message key="configurationList.paging.banner.link"/> {0}>{0}</a></display:setProperty>
             <display:setProperty name="basic.msg.empty_list"><fmt:message key="configurationList.basic.msg.empty_list"/></display:setProperty>
 
-            <%--<display:setProperty name="export.excel.filename"><fmt:message key="configurationList.title"/>.xls</display:setProperty>--%>
-            <%--<display:setProperty name="export.csv.filename"><fmt:message key="configurationList.title"/>.csv</display:setProperty>--%>
-            <%--<display:setProperty name="export.pdf.filename"><fmt:message key="configurationList.title"/>.pdf</display:setProperty>--%>
         </display:table>
 
-    </form>
+    </s:form>
 
 </div>

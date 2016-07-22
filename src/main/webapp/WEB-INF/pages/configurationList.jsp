@@ -49,7 +49,7 @@
 
                         <s:submit theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" />
 
-                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" />
+                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteConfiguration()" />
                     </div>
                 </td>
                 <td align="right">
@@ -91,6 +91,8 @@
                 <%--<s:param name="id" value="id"/>--%>
             <%--</display:column>--%>
             <display:column property="description" sortable="true" titleKey="configuration.description"/>
+
+
 
             <%--Хрипушин А.В. Русификация display tag-ов--%>
             <display:setProperty name="export.banner"><div class="exportlinks"> <fmt:message key="configurationList.export.banner"/>{0} </div></display:setProperty>

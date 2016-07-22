@@ -69,7 +69,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             addActionError(se.getMessage());
             configurations = configurationManager.getAll();
         }
-        return SUCCESS;
+        return INPUT;
     }
 
     public String listConfigurationsBySection() {
@@ -84,6 +84,14 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             configurations = new ArrayList<Configuration>();
         }
         return SUCCESS;
+    }
+
+    public String back() {
+        if ( query != null ) {
+            return listConfigurationsBySearch();
+        } else {
+            return listConfigurationsBySection();
+        }
     }
 
     public String activateSelected() {
@@ -149,9 +157,6 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             configuration = new Configuration();
             configuration.setSection(parentSection);
         }
-
-        logger.debug("Current Configuration: " + configuration.getName());
-
         if (configuration.getInputParameterSize() == 0) {
             configuration.addInputParam("","");
         }
@@ -166,9 +171,6 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         if (delete != null) { return delete(); }
         boolean isNew = (configuration.getId() == null);
         configuration.setActive(true);
-
-        logger.error("Config: " + configuration);
-
         configurationManager.save(configuration);
         parentSection = configuration.getSection();
         pageTitle = parentSection.getName();
@@ -199,9 +201,6 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         } catch (SearchException se) {
             addActionError(se.getMessage());
         }
-
-        logger.debug("File selected: " + this.fileUpload);
-
         try {
             uploadedFiles = FileUtil.processUploadedFile(fileUpload, fileUploadFileName);
         } catch (Exception e) {
@@ -231,9 +230,6 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         } catch (SearchException se) {
             addActionError(se.getMessage());
         }
-
-        logger.debug("File selected: " + this.fileUpload);
-
         try {
             uploadedFiles = FileUtil.processUploadedFile(fileUpload, fileUploadFileName);
         } catch (Exception e) {
@@ -257,9 +253,6 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     }
 
     public String exportSelected() {
-
-        logger.error("parentSectionId = " + parentSectionId + ", selectedBox = " + selectedBox);
-
         try {
             parentSection = (Section)sectionManager.get(new Long(parentSectionId));
         } catch (SearchException se) {

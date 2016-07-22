@@ -71,9 +71,12 @@ function reindexOutputParameters() {
 <%--</s:submit>--%>
 
 
-<div id="actions" class="form-actions">
-    <s:url var="backLink" action="configurations">
+<div id="backButton" class="form-actions">
+    <s:url var="backLink" action="backFromEditConfiguration">
         <s:param name="parentSectionId" value="parentSection.id" />
+        <c:if test="${not empty query}">
+            <s:param name="query" value="query" />
+        </c:if>
     </s:url>
     <s:a href="%{backLink}" cssClass="btn btn-primary" type="button" theme="simple">
         <fmt:message key="button.back"/>

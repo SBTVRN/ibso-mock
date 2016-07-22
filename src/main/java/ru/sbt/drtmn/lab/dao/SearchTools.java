@@ -6,6 +6,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.util.Version;
@@ -65,7 +66,11 @@ class SearchTools {
                 for (int i = 0; i < queries.length; ++i) {
                     queries[i] = searchTerm;
                 }
-                qry = MultiFieldQueryParser.parse(Version.LUCENE_35, queries, fnames, analyzer);
+//                Хрипушин А.В. setAllowLeadingWildcard
+//                qry = MultiFieldQueryParser.parse(Version.LUCENE_35, queries, fnames, analyzer);
+                QueryParser parser = new MultiFieldQueryParser(Version.LUCENE_35, fnames, analyzer);
+                parser.setAllowLeadingWildcard(true);
+                qry = parser.parse(searchTerm);
                 logger.debug("Lucene query was generated " + qry);
             } finally {
                 if (readerAccessor != null && reader != null) {

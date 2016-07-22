@@ -62,10 +62,10 @@ $(function() {
 <h2><fmt:message key="sectionDetail.heading"/></h2>
 
 
-<div id="sectionActions" class="form-actions">
-    <a class="btn btn-primary" href="<c:url value='/sections' />" >
-        <i class="icon-plus icon-white"></i><fmt:message key="button.back"/>
-    </a>
+<div id="backButton" class="form-actions">
+    <s:a action="sections" cssClass="btn btn-primary">
+        <fmt:message key="button.back" />
+    </s:a>
 </div>
 <br />
 
@@ -80,16 +80,16 @@ $(function() {
     <br>
     <div id="sectionActions" class="form-actions">
         <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
-            <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
+            <fmt:message key="button.save"/>
         </s:submit>
         <c:if test="${not empty currentSection.id}">
             <s:submit type="button" cssClass="btn btn-warning" method="delete" key="button.delete"
                       onclick="return confirmMessage(msgDelConfirm)" theme="simple">
-                <i class="icon-trash icon-white"></i> <fmt:message key="button.delete"/>
+                <fmt:message key="button.delete"/>
             </s:submit>
         </c:if>
         <s:submit type="button" cssClass="btn" method="cancel" key="button.cancel" theme="simple">
-            <i class="icon-remove"></i> <fmt:message key="button.cancel"/>
+            <fmt:message key="button.cancel"/>
         </s:submit>
     </div>
 </s:form>

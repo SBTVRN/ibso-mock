@@ -128,3 +128,10 @@ h2 {
 #page-size-link {
     padding: 0px 5px;
 }
+#search-field {
+    width: 250px;
+    margin-right: 5px;
+}
+#backButton {
+    margin-left: 6px;
+}

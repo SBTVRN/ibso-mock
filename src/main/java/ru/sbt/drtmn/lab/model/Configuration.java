@@ -6,6 +6,8 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import ru.sbt.drtmn.lab.util.JaxbXMLType;
 import ru.sbt.drtmn.lab.xml.Param;
 import ru.sbt.drtmn.lab.xml.ParamList;
@@ -22,6 +24,7 @@ import java.util.List;
  * This class is used to represent configuration.
  *
   */
+@Indexed
 @Entity
 @Table(name = "CONFIGURATIONS")
 @TypeDefs(
@@ -50,9 +53,12 @@ import java.util.List;
 public class Configuration extends GenericModel implements Serializable {
     private static final long serialVersionUID = 3690197650654049848L;
 
+    @Field
     private Long id;
     // method name
+    @Field
     private String name;
+    @Field
     private String description;
     private Section section;
     private Boolean active;

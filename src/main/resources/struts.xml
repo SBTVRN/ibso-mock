@@ -75,6 +75,10 @@
         <action name="configurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="listConfigurationsBySection">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>
+        <!-- Search configurations -->
+        <action name="search" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="listConfigurationsBySearch">
+            <result name="input">/WEB-INF/pages/configurationSearchList.jsp</result>
+        </action>
         <!-- actions configurations -->
         <action name="configurationActions" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
@@ -82,6 +86,11 @@
         <!-- Edit configuration -->
         <action name="editConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="edit">
             <result name="success">/WEB-INF/pages/configurationForm.jsp</result>
+        </action>
+        <!-- Back from edit configuration -->
+        <action name="backFromEditConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="back">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="input">/WEB-INF/pages/configurationSearchList.jsp</result>
         </action>
         <!-- Save configuration -->
         <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
