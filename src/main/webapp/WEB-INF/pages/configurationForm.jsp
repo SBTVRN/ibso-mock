@@ -170,7 +170,7 @@ function reindexOutputParameters() {
         <s:url var="cancelLink" action="configurations">
             <s:param name="parentSectionId" value="parentSection.id" />
         </s:url>
-        <s:a href="%{cancelLink}" cssClass="btn" type="button" theme="simple">
+        <s:a href="%{cancelLink}" cssClass="btn-primary" type="button" theme="simple">
             <fmt:message key="button.cancel"/>
         </s:a>
     </div>

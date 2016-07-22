@@ -88,7 +88,7 @@ $(function() {
                 <fmt:message key="button.delete"/>
             </s:submit>
         </c:if>
-        <s:submit type="button" cssClass="btn" method="cancel" key="button.cancel" theme="simple">
+        <s:submit type="button" cssClass="btn btn-primary" method="cancel" key="button.cancel" theme="simple">
             <fmt:message key="button.cancel"/>
         </s:submit>
     </div>
