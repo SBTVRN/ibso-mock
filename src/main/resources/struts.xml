@@ -18,6 +18,7 @@
 
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+
         <interceptors>
             <interceptor-stack name="defaultStack">
                 <interceptor-ref name="exception"/>
@@ -40,8 +41,6 @@
             </interceptor-stack>
         </interceptors>
 
-
-
         <global-results>
             <result name="dataAccessFailure">dataAccessFailure.jsp</result>
         </global-results>
@@ -50,39 +49,65 @@
             <exception-mapping exception="org.springframework.dao.DataAccessException" result="dataAccessFailure"/>
         </global-exception-mappings>
 
-        <!-- List of configurations. Search -->
-        <action name="search" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
-            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        <!-- Section Action mapping -->
+        <!-- List of all sections -->
+        <action name="sections" class="ru.sbt.drtmn.lab.webapp.action.SectionAction" method="listSections">
+            <result name="success">/WEB-INF/pages/sectionList.jsp</result>
+        </action>
+        <!-- actions sections -->
+        <action name="sectionActions" class="ru.sbt.drtmn.lab.webapp.action.SectionAction">
+            <result name="success" type="redirectAction">sections</result>
+        </action>
+        <!-- Edit Section -->
+        <action name="editSection" class="ru.sbt.drtmn.lab.webapp.action.SectionAction" method="edit">
+            <result name="success">/WEB-INF/pages/sectionForm.jsp</result>
+        </action>
+        <!-- Save section -->
+        <action name="saveSection" class="ru.sbt.drtmn.lab.webapp.action.SectionAction">
+            <result name="cancel" type="redirectAction">sections</result>
+            <result name="delete" type="redirectAction">sections</result>
+            <result name="input" type="redirectAction">sections</result>
+            <result name="success" type="redirectAction">sections</result>
         </action>
 
+        <!-- Configuration Action mapping -->
         <!-- List of configurations -->
-        <action name="pageSizeChange" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
+        <action name="configurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="listConfigurationsBySection">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>
-
-        <!-- List of configurations -->
-        <action name="configurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
-            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
-            <result name="input">/WEB-INF/pages/configurationList.jsp</result>
+        <!-- Search configurations -->
+        <action name="search" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="listConfigurationsBySearch">
+            <result name="input">/WEB-INF/pages/configurationSearchList.jsp</result>
         </action>
-
+        <!-- actions configurations -->
+        <action name="configurationActions" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        </action>
         <!-- Edit configuration -->
         <action name="editConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="edit">
             <result name="success">/WEB-INF/pages/configurationForm.jsp</result>
-            <result name="input">/WEB-INF/pages/configurationList.jsp</result>
         </action>
-
-        <!-- Import configuration -->
-        <action name="setImportConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="list">
+        <!-- Back from edit configuration -->
+        <action name="backFromEditConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="back">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="input">/WEB-INF/pages/configurationSearchList.jsp</result>
+        </action>
+        <!-- Save configuration -->
+        <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
+            <result name="cancel">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="delete">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="input">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        </action>
+        <!-- Set import configuration -->
+        <action name="setImportConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="setImportConfiguration">
             <result name="success">/WEB-INF/pages/configurationUpload.jsp</result>
         </action>
-
         <!-- Import configuration -->
         <action name="importConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
                 <interceptor-ref name="exception"/>
                 <interceptor-ref name="i18n"/>
                 <interceptor-ref name="fileUpload">
-                    <!--<param name="allowedTypes"> text/plain</param>-->
                     <param name="maximumSize">10485760</param>
                 </interceptor-ref>
                 <interceptor-ref name="params">
@@ -95,31 +120,18 @@
                     <param name="excludeMethods">input,back,cancel,browse</param>
                 </interceptor-ref>
 
-                <result name="success" type="redirectAction">setImportConfigurations</result>
-                <!--<result name="input">pages/fileupload.jsp</result>-->
-        </action>
+                <result name="success">/WEB-INF/pages/configurationUpload.jsp</result>
 
-        <!-- actions configurations -->
-        <action name="actions" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
-            <result name="success" type="redirectAction">configurations</result>
         </action>
-
-        <!-- Save configuration -->
-        <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
-            <result name="cancel" type="redirectAction">configurations</result>
-            <result name="delete" type="redirectAction">configurations</result>
-            <result name="input" type="redirectAction">configurations</result>
+        <!-- Export configurations -->
+        <action name="exportConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="exportSelected">
             <result name="success" type="redirectAction">configurations</result>
         </action>
 
 
 
-        <!--&lt;!&ndash; Export configuration &ndash;&gt;-->
-        <!--<action name="exportConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="exportSelected">-->
-            <!--<result name="success" type="redirectAction">configurations</result>-->
-        <!--</action>-->
+
+
 
     </package>
-
-
 </struts>

@@ -1,25 +1,16 @@
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
-    <%--<title><fmt:message key="configurationList.title"/></title>--%>
-    <%--<meta name="menu" content="ConfigurationMenu"/>--%>
+<%--<title><fmt:message key="configurationList.title"/></title>--%>
+<%--<meta name="menu" content="ConfigurationMenu"/>--%>
 <%--</head>--%>
 
 <div class="span10">
     <h2>
-        <s:property value="pageTitle" />
+        <fmt:message key="search.titleResult"/>
     </h2>
 
     <s:form action="configurationActions" id="searchForm" class="form-search" >
-
-
-         <%--<div id="search" class="input-append">--%>
-            <%--<input type="text" size="20" name="q" id="query" value="${param.q}"
-                   placeholder="<fmt:message key="search.enterTerms"/>" class="input-medium search-query"/>
-            --%>
-        <%--</div>--%>
-
-        <s:hidden name="parentSectionId" value="%{parentSectionId}" />
 
         <table width="100%">
             <tr>
@@ -28,47 +19,25 @@
                         <s:a theme="simple" cssClass="btn btn-primary" type="button" action="sections">
                             <fmt:message key="button.back"/>
                         </s:a>
-
-                        <s:url var="createNewConfigurationLink" action="editConfiguration">
-                            <s:param name="parentSectionId" value="parentSectionId" />
-                        </s:url>
-                        <s:a theme="simple" cssClass="btn btn-link" type="button" href="%{createNewConfigurationLink}" >
-                            <fmt:message key="button.add"/>
-                        </s:a>
-
-                        <s:url var="importConfigurationLink" action="setImportConfigurations">
-                            <s:param name="parentSectionId" value="parentSectionId" />
-                        </s:url>
-                        <s:a theme="simple" cssClass="btn btn-info" type="button" href="%{importConfigurationLink}">
-                            <fmt:message key="button.import"/>
-                        </s:a>
-
-                        <s:submit theme="simple" key="button.export" cssClass="btn btn-info" method="exportSelected" />
-
-                        <s:submit theme="simple" key="button.activate" cssClass="btn btn-success" method="activateSelected" />
-
-                        <s:submit theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" />
-
-                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteConfiguration()" />
                     </div>
                 </td>
                 <td align="right">
-                    <s:url var="configurationsWithPageSize10" action="configurations">
-                        <s:param name="parentSectionId" value="parentSectionId" />
+                    <s:url var="configurationsWithPageSize10" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="10" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize10}" >
                         <fmt:message key="button.10"/>
                     </s:a>
-                    <s:url var="configurationsWithPageSize20" action="configurations">
-                        <s:param name="parentSectionId" value="parentSectionId" />
+                    <s:url var="configurationsWithPageSize20" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="20" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSize20}" >
                         <fmt:message key="button.20"/>
                     </s:a>
-                    <s:url var="configurationsWithPageSizeAll" action="configurations">
-                        <s:param name="parentSectionId" value="parentSectionId" />
+                    <s:url var="configurationsWithPageSizeAll" action="search">
+                        <s:param name="query" value="query" />
                         <s:param name="pageSize" value="99999" />
                     </s:url>
                     <s:a theme="simple" id="page-size-link" href="%{configurationsWithPageSizeAll}" >
@@ -78,21 +47,16 @@
             </tr>
         </table>
 
+        <%--<s:hidden name="query" value="%{query}" />--%>
+
         <display:table name="configurations" class="table table-condensed table-striped table-hover" requestURI="" id="configurationList" export="false" pagesize='${pageSize}'>
 
-            <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
-            <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
             <display:column titleKey="configuration.select" media="html">
                 <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
             </display:column>
             <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
-            <%--<display:column property="name" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.name">--%>
-            <display:column property="name" sortable="true" href="editConfiguration" media="html" titleKey="configuration.name" paramId="id" paramProperty="id"/>
-                <%--<s:param name="id" value="id"/>--%>
-            <%--</display:column>--%>
+            <display:column property="name" sortable="true" href="editConfiguration?query=${query}&id=${id}"  media="html" titleKey="configuration.name" paramId="id" paramProperty="id" />
             <display:column property="description" sortable="true" titleKey="configuration.description"/>
-
-
 
             <%--Хрипушин А.В. Русификация display tag-ов--%>
             <display:setProperty name="export.banner"><div class="exportlinks"> <fmt:message key="configurationList.export.banner"/>{0} </div></display:setProperty>

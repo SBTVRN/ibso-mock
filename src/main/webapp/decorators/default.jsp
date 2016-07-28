@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8"%>
+<%--<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8"%>--%>
 <%@ include file="/taglibs.jsp" %>
 
 <!DOCTYPE html>
@@ -21,8 +21,8 @@
 </head>
 
 <body
-        <decorator:getProperty property="body.id" writeEntireProperty="true"/>
-        <decorator:getProperty property="body.class" writeEntireProperty="true"/>
+    <decorator:getProperty property="body.id" writeEntireProperty="true"/>
+    <decorator:getProperty property="body.class" writeEntireProperty="true"/>
 >
 
 <div class="container-fluid">
