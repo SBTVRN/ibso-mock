@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8"%>
+<%--<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8"%>--%>
 <%@ include file="/taglibs.jsp" %>
 
 <!DOCTYPE html>
@@ -21,8 +21,8 @@
 </head>
 
 <body
-        <decorator:getProperty property="body.id" writeEntireProperty="true"/>
-        <decorator:getProperty property="body.class" writeEntireProperty="true"/>
+    <decorator:getProperty property="body.id" writeEntireProperty="true"/>
+    <decorator:getProperty property="body.class" writeEntireProperty="true"/>
 >
 
 <div class="container-fluid">
@@ -35,6 +35,12 @@
 
     </div>
 </div>
+
+<%--Хрипушин А.В. Отладка Struts2--%>
+<%--<hr/>--%>
+<%--<p><a href="<s:url action="index" namespace="config-browser" />">Launch the configuration browser</a></p>--%>
+<%--<s:debug/>--%>
+<%--Хрипушин А.В. Отладка Struts2--%>
 
 <div id="footer">
     <p>

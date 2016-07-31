@@ -6,7 +6,8 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
-import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import ru.sbt.drtmn.lab.util.JaxbXMLType;
 import ru.sbt.drtmn.lab.xml.Param;
 import ru.sbt.drtmn.lab.xml.ParamList;
@@ -14,6 +15,7 @@ import ru.sbt.drtmn.lab.xml.ParamList;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.List;
@@ -42,18 +44,21 @@ import java.util.List;
         query = " from Configuration c where c.name = :name"
     ),
     @NamedQuery(
-        name = "findAllConfigurationsBySectionId",
+        name = "findAllConfigurationsBySection",
         query = " from Configuration c where c.section = :section"
     )
 })
 @XmlRootElement
-@XmlType(propOrder = {"id", "name", "description", "section", "active", "inputParams", "outputParams", "messageTemplate"})
+@XmlType(propOrder = {"id", "name", "description", "active", "inputParams", "outputParams", "messageTemplate"})
 public class Configuration extends GenericModel implements Serializable {
     private static final long serialVersionUID = 3690197650654049848L;
 
+    @Field
     private Long id;
     // method name
+    @Field
     private String name;
+    @Field
     private String description;
     private Section section;
     private Boolean active;
@@ -80,23 +85,21 @@ public class Configuration extends GenericModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_Sequence")
     @SequenceGenerator(name = "id_Sequence", sequenceName = "CONF_ID_GEN")
-    @DocumentId
     public Long getId() {
         return id;
     }
 
-    @Field(index= Index.YES, analyze= Analyze.YES, store=Store.NO)
     @Column(length = 64,nullable = false)
     public String getName() {
         return this.name;
     }
 
-    @Field(index= Index.YES, analyze= Analyze.YES, store=Store.NO)
     @Column(length = 100)
     public String getDescription() {
         return this.description;
     }
 
+    @XmlTransient
     @ManyToOne
     @JoinColumn(name = "SECTION_ID")
     public Section getSection() { return this.section; }
@@ -143,7 +146,6 @@ public class Configuration extends GenericModel implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    @XmlElement
     public void setSection(Section section) {
         this.section = section;
     }

@@ -28,7 +28,7 @@ import org.hibernate.search.Search;
  * This class serves as the Base class for all other DAOs - namely to hold
  * common CRUD methods that they might all use. You should only need to extend
  * this class when your require custom CRUD logic.
- *
+ * <p/>
  * <p>To register this class in your Spring context file, use the following XML.
  * <pre>
  *      &lt;bean id="fooDao" class="ru.sbt.drtmn.lab.dao.GenericDaoImpl"&gt;
@@ -99,7 +99,12 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
     public List<T> search(String searchTerm) throws SearchException {
         Session sess = getSession();
         FullTextSession txtSession = Search.getFullTextSession(sess);
-        SearchTools.reindex(this.persistentClass, sess);
+        try {
+            txtSession.createIndexer().startAndWait();
+        } catch (InterruptedException ex) {
+            logger.error("Parse exception when creating lucene indexes", ex);
+            throw new SearchException(ex);
+        }
         org.apache.lucene.search.Query qry;
         try {
             qry = SearchTools.generateQuery(searchTerm, this.persistentClass, sess, defaultAnalyzer);

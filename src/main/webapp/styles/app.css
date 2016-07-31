@@ -18,15 +18,15 @@ body > .navbar .brand {
     opacity: .7;
 }
 
-div.exportlinks {
-    margin: -5px 0 10px 5px;
-    padding: 2px 4px 2px 0;
-    width: 100%;
-}
+/*div.exportlinks {*/
+    /*margin: -5px 0 10px 5px;*/
+    /*padding: 2px 4px 2px 0;*/
+    /*width: 100%;*/
+/*}*/
 
-div.exportlinks span {
-    background-repeat: no-repeat;
-}
+/*div.exportlinks span {*/
+    /*background-repeat: no-repeat;*/
+/*}*/
 
 span.export {
     cursor: pointer;
@@ -114,13 +114,24 @@ th.sorted a, th.sortable a {
     margin-bottom: 10px;
 }
 
-.btn-group .btn, .form-actions .btn {
-    margin-left: 5px;
+a.btn-group .btn, .form-actions a.btn, a.btn {
+    margin-right: 4px;
 }
+
 .span10 {
     margin: 0px 5px 0px 5px;
 }
 
 h2 {
     margin-left: 5px;
+}
+#page-size-link {
+    padding: 0px 5px;
+}
+#search-field {
+    width: 250px;
+    margin-right: 5px;
+}
+#backButton {
+    margin-left: 6px;
 }

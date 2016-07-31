@@ -1,4 +1,4 @@
-package ru.sbt.drtmn.lab.dao;
+package ru.sbt.drtmn.lab.service;
 
 import ru.sbt.drtmn.lab.model.Configuration;
 import ru.sbt.drtmn.lab.model.Section;
@@ -11,5 +11,7 @@ import java.util.List;
  * @author <a href="mailto:svrazuvaev@yandex.ru">Razuvaev Sergey</a>
  *         Short Class Description.
  */
-public interface SectionDao extends GenericDao<Section, Long> {
+public interface SectionManager extends GenericManager<Section, Long> {
+    public Integer deleteSections(List<Long> ids);
+    public List<Configuration> getSectionConfigurations(Section section);
 }

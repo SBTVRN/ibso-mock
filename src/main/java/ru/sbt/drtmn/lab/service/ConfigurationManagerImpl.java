@@ -106,6 +106,7 @@ public class ConfigurationManagerImpl extends GenericManagerImpl<Configuration, 
             }
             currentConfiguration.setDescription(configuration.getDescription());
             currentConfiguration.setActive(configuration.getActive());
+            currentConfiguration.setSection(configuration.getSection());
             currentConfiguration.setMessageTemplate(configuration.getMessageTemplate());
             currentConfiguration.setInputParams(configuration.getInputParams());
             currentConfiguration.setOutputParams(configuration.getOutputParams());
