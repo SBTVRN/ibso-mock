@@ -64,9 +64,16 @@
         </action>
         <!-- Save section -->
         <action name="saveSection" class="ru.sbt.drtmn.lab.webapp.action.SectionAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
             <result name="cancel" type="redirectAction">sections</result>
             <result name="delete" type="redirectAction">sections</result>
-            <result name="input" type="redirectAction">sections</result>
+            <result name="input">/WEB-INF/pages/sectionForm.jsp</result>
             <result name="success" type="redirectAction">sections</result>
         </action>
 
@@ -94,9 +101,16 @@
         </action>
         <!-- Save configuration -->
         <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="validation">
+            <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+            <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
             <result name="cancel">/WEB-INF/pages/configurationList.jsp</result>
             <result name="delete">/WEB-INF/pages/configurationList.jsp</result>
-            <result name="input">/WEB-INF/pages/configurationList.jsp</result>
+            <result name="input">/WEB-INF/pages/configurationForm.jsp</result>
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
         </action>
         <!-- Set import configuration -->

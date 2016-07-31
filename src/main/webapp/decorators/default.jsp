@@ -36,6 +36,12 @@
     </div>
 </div>
 
+<%--Хрипушин А.В. Отладка Struts2--%>
+<%--<hr/>--%>
+<%--<p><a href="<s:url action="index" namespace="config-browser" />">Launch the configuration browser</a></p>--%>
+<%--<s:debug/>--%>
+<%--Хрипушин А.В. Отладка Struts2--%>
+
 <div id="footer">
     <p>
         <fmt:message key="default.footer"/>

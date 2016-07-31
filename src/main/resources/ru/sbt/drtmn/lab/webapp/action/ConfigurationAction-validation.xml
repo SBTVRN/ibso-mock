@@ -1,5 +1,5 @@
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
-    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 <validators>
     <!--<field name="configuration">-->
         <!--<field-validator type="visitor">-->
@@ -7,4 +7,9 @@
             <!--<message/>-->
         <!--</field-validator>-->
     <!--</field>-->
+    <field name="msgConfiguration.name">
+        <field-validator type="requiredstring">
+            <message> Задайте имя шаблона!</message>
+        </field-validator>
+    </field>
 </validators> 
