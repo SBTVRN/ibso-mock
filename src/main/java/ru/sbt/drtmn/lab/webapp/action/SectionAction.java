@@ -89,10 +89,22 @@ public class SectionAction extends GenericAction implements Preparable {
         saveMessage(getText(key));
         if (!isNew) {
             sectionManager.update(currentSection);
-            return INPUT;
+            return SUCCESS;
         } else {
             sectionManager.save(currentSection);
             return SUCCESS;
+        }
+    }
+
+    @Override
+    public void validate(){
+        if (currentSection.getId() == null) {
+            try {
+                Section sectionByName = sectionManager.getSectionsByName(currentSection.getName()).get(0);
+                addFieldError("currentSection.name", " Каталог с именем " + sectionByName.getName() + " существует в БД");
+            } catch (Exception e) {
+                logger.debug("Name check success");
+            }
         }
     }
 

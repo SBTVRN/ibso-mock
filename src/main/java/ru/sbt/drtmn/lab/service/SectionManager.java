@@ -14,5 +14,6 @@ import java.util.List;
 public interface SectionManager extends GenericManager<Section, Long> {
     public Integer deleteSections(List<Long> ids);
     public List<Configuration> getSectionConfigurations(Section section);
+    public List<Section> getSectionsByName(String name);
     public void update(Section section);
 }

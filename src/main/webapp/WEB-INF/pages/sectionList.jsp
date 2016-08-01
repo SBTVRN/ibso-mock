@@ -32,9 +32,12 @@
                         <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
                             <fmt:message key="button.add"/>
                         </s:a>
-                        <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">
-                            <fmt:message key="button.delete"/>
-                        </s:submit>
+
+                        <%--<s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">--%>
+                            <%--<fmt:message key="button.delete"/>--%>
+                        <%--</s:submit>--%>
+
+                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteSection()" />
                     </div>
                 </td>
                 <td align="right">

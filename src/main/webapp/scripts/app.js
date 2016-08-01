@@ -17,6 +17,12 @@ function confirmDeleteConfiguration() {
     return ans;
 }
 
+function confirmDeleteSection() {
+    var msg = getMessage('msg_confirm_delete_sections');
+    var ans = confirm(msg);
+    return ans;
+}
+
 function getMessage(name) {
     jQuery.i18n.properties({
         name: 'js',

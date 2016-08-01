@@ -12,45 +12,7 @@
         </webroots>
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
-      </configuration>
-      <facet type="Struts2" name="Struts 2">
-        <configuration>
-          <fileset id="s2fileset" name="My Fileset " removed="false">
-            <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
-            <file>jar://$MAVEN_REPOSITORY$/com/jgeppert/struts2/bootstrap/struts2-bootstrap-plugin/1.5.2/struts2-bootstrap-plugin-1.5.2.jar!/struts-plugin.xml</file>
-            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-convention-plugin/2.3.8/struts2-convention-plugin-2.3.8.jar!/struts-plugin.xml</file>
-            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.3.8/struts2-core-2.3.8.jar!/struts-default.xml</file>
-            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-spring-plugin/2.3.8/struts2-spring-plugin-2.3.8.jar!/struts-plugin.xml</file>
-          </fileset>
-          <propertiesKeys disabled="false" />
-        </configuration>
-      </facet>
-    </facet>
-    <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false" />
-        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
-        </fileset>
-      </configuration>
-    </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="sessionFactory" value="dataSource" />
-        </datasource-map>
-        <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
-      </configuration>
-    </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping />
       </configuration>
     </facet>
   </component>
@@ -59,36 +21,11 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/webapp" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="commons-dbcp-1.4" level="project" />
-    <orderEntry type="library" name="ojdbc6" level="project" />
-    <orderEntry type="library" name="camel-core-2.11.0" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.commonservices" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.jmqi" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.mqjms" level="project" />
-    <orderEntry type="library" name="javax.jms" level="project" />
-    <orderEntry type="library" name="dhbcore" level="project" />
-    <orderEntry type="library" name="camel-jms-2.11.0" level="project" />
-    <orderEntry type="library" name="spring-jms-3.1.3.RELEASE" level="project" />
-    <orderEntry type="library" name="CL3Export" level="project" />
-    <orderEntry type="library" name="CL3Nonexport" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.axis2" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.defaultconfig" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.headers" level="project" />
-    <orderEntry type="library" name="com.ibm.mq" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.jms.Nojndi" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.pcf" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.postcard" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.soap" level="project" />
-    <orderEntry type="library" name="com.ibm.mq.tools.ras" level="project" />
-    <orderEntry type="library" name="connector" level="project" />
-    <orderEntry type="library" name="jdom" level="project" />
-    <orderEntry type="library" name="rmm" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.3.170" level="project" />
     <orderEntry type="library" name="Maven: com.jgeppert.struts2.bootstrap:struts2-bootstrap-plugin:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.5" level="project" />
