@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-cache"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="0"/>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251"/>
     <link rel="shortcut icon" href="${ctx}/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="${ctx}/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${ctx}/styles/app.css">

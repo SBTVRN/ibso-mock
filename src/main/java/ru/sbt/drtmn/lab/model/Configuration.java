@@ -85,6 +85,7 @@ public class Configuration extends GenericModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_Sequence")
     @SequenceGenerator(name = "id_Sequence", sequenceName = "CONF_ID_GEN")
+    @DocumentId
     public Long getId() {
         return id;
     }

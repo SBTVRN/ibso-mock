@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by Razuvaev S.V.
   Date: 05.07.2016
