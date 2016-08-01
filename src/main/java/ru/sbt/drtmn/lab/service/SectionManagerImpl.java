@@ -55,6 +55,13 @@ public class SectionManagerImpl extends GenericManagerImpl<Section, Long> implem
         return ret;
     }
 
+    @Override
+    public void update(Section section) {
+        Section oldSection = get(section.getId());
+        oldSection.setName(section.getName());
+        oldSection.setDescription(section.getDescription());
+    }
+
     public ConfigurationDao getConfigurationDao() {
         return configurationDao;
     }

@@ -17,7 +17,7 @@
         <s:submit action="search" cssClass="btn btn-success" theme="simple" key="button.search" />
     </s:form>
 
-    <form method="get" action="${ctx}/sectionActions" id="searchForm" class="form-search">
+    <form method="get" action="sectionActions" id="searchForm" class="form-search">
 
         <%--<div id="search" class="input-append">--%>
             <%--<input type="text" size="20" name="q" id="query" value="${param.q}"--%>

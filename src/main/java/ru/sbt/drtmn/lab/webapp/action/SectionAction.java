@@ -85,12 +85,13 @@ public class SectionAction extends GenericAction implements Preparable {
         if (cancel != null) { return "cancel"; }
         if (delete != null) { return delete(); }
         boolean isNew = (currentSection.getId() == null);
-        sectionManager.save(currentSection);
         String key = (isNew) ? "Section " + currentSection.getName() + " added" : "Section " + currentSection.getName() + " updated";
         saveMessage(getText(key));
         if (!isNew) {
+            sectionManager.update(currentSection);
             return INPUT;
         } else {
+            sectionManager.save(currentSection);
             return SUCCESS;
         }
     }

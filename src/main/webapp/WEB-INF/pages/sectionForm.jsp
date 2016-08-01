@@ -15,48 +15,6 @@
 <c:set var="delObject" scope="request"><fmt:message key="sectionList.configuration"/></c:set>
 <script type="text/javascript">var msgDelConfirm =
         "<fmt:message key="delete.confirm"><fmt:param value="${delObject}"/></fmt:message>";
-
-$(function() {
-
-    var it = $('#input_table');
-    var i = $('#input_table tr').size() - 1;
-    $('#add_input_param').on('click', function() {
-        var t = $('#input_table tr:eq(1)').clone(true).appendTo(it);
-        $(t).find('[name*="message"]').each( function() {
-            this.name = this.name.replace('0','' + i);
-            this.value = '';
-            console.log(this.name);
-        });
-        i++;
-        console.log("i=" + i);
-    });
-    $('#remove_input_param').on('click', function () {
-        console.log("i=" + i);
-        if (i > 1) {
-            $('#input_table tr:last').remove();
-            i--;
-        }
-    });;
-
-    var ot = $('#output_table');
-    var o = $('#output_table tr').size() - 1;
-    $('#add_output_param').on('click', function() {
-        var t = $('#output_table tr:eq(1)').clone(true).appendTo(ot);
-        $(t).find('[name*="message"]').each( function() {
-            this.name = this.name.replace('0','' + o);
-            this.value = '';
-            console.log(this.name);
-        });
-        o++;
-    });
-    $('#remove_output_param').on('click', function () {
-        if (o > 1) {
-            $('#output_table tr:last').remove();
-            o--;
-        }
-    });;
-});
-
 </script>
 
 <h2><fmt:message key="sectionDetail.heading"/></h2>
