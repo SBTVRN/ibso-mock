@@ -127,12 +127,12 @@
                 <interceptor-ref name="params">
                     <param name="excludeParams">dojo\..*,^struts\..*</param>
                 </interceptor-ref>
-                <interceptor-ref name="validation">
-                    <param name="excludeMethods">input,back,cancel,browse</param>
-                </interceptor-ref>
-                <interceptor-ref name="workflow">
-                    <param name="excludeMethods">input,back,cancel,browse</param>
-                </interceptor-ref>
+                <!--<interceptor-ref name="validation">-->
+                    <!--<param name="excludeMethods">input,back,cancel,browse</param>-->
+                <!--</interceptor-ref>-->
+                <!--<interceptor-ref name="workflow">-->
+                    <!--<param name="excludeMethods">input,back,cancel,browse</param>-->
+                <!--</interceptor-ref>-->
 
                 <result name="success">/WEB-INF/pages/configurationUpload.jsp</result>
 
