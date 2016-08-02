@@ -178,7 +178,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         String key = (isNew) ? "Configuration [" + configuration.getName() + "] added" : "Configuration [" + configuration.getName() + "] updated";
         saveMessage(getText(key));
         if (!isNew) {
-            return INPUT;
+            return SUCCESS;
         } else {
             return SUCCESS;
         }
@@ -293,6 +293,18 @@ public class ConfigurationAction extends GenericAction implements Preparable {
             addActionError(se.getMessage());
         }
         return SUCCESS;
+    }
+
+    @Override
+    public void validate(){
+        if (configuration.getId() == null) {
+            try {
+                Configuration configurationByName = configurationManager.getMsgConfigurationsByName(configuration.getName()).get(0);
+                addFieldError("msgConfiguration.name", " Шаблон с именем " + configurationByName.getName() + " существует в БД");
+            } catch (Exception e) {
+                logger.debug("Name check success");
+            }
+        }
     }
 
     // Getters and Setters

@@ -1,6 +1,6 @@
 <s:actionerror theme="bootstrap"/>
 <s:actionmessage theme="bootstrap"/>
-<s:fielderror theme="bootstrap"/>
+<%--<s:fielderror theme="bootstrap"/>--%>
 
 <%-- Success Messages --%>
 <c:if test="${not empty messages}">

@@ -103,10 +103,10 @@
         <action name="saveConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="validation">
-            <param name="excludeMethods">input,back,cancel,browse</param>
+                <param name="excludeMethods">input,back,cancel,browse</param>
             </interceptor-ref>
             <interceptor-ref name="workflow">
-            <param name="excludeMethods">input,back,cancel,browse</param>
+                <param name="excludeMethods">input,back,cancel,browse</param>
             </interceptor-ref>
             <result name="cancel">/WEB-INF/pages/configurationList.jsp</result>
             <result name="delete">/WEB-INF/pages/configurationList.jsp</result>
@@ -141,11 +141,6 @@
         <action name="exportConfigurations" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="exportSelected">
             <result name="success" type="redirectAction">configurations</result>
         </action>
-
-
-
-
-
 
     </package>
 </struts>

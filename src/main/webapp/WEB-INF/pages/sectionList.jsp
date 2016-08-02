@@ -17,7 +17,7 @@
         <s:submit action="search" cssClass="btn btn-success" theme="simple" key="button.search" />
     </s:form>
 
-    <form method="get" action="${ctx}/sectionActions" id="searchForm" class="form-search">
+    <form method="get" action="sectionActions" id="searchForm" class="form-search">
 
         <%--<div id="search" class="input-append">--%>
             <%--<input type="text" size="20" name="q" id="query" value="${param.q}"--%>
@@ -32,9 +32,12 @@
                         <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
                             <fmt:message key="button.add"/>
                         </s:a>
-                        <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete" onclick="return confirmDeleteSection()" >
-                            <fmt:message key="button.delete"/>
-                        </s:submit>
+
+                        <%--<s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">--%>
+                            <%--<fmt:message key="button.delete"/>--%>
+                        <%--</s:submit>--%>
+
+                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteSection()" />
                     </div>
                 </td>
                 <td align="right">
