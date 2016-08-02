@@ -92,6 +92,7 @@
     <orderEntry type="library" name="connector" level="project" />
     <orderEntry type="library" name="jdom" level="project" />
     <orderEntry type="library" name="rmm" level="project" />
+    <orderEntry type="library" name="struts2-config-browser-plugin-2.3.8" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.3.170" level="project" />
     <orderEntry type="library" name="Maven: com.jgeppert.struts2.bootstrap:struts2-bootstrap-plugin:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.5" level="project" />
@@ -257,6 +258,5 @@
     <orderEntry type="library" name="Maven: org.apache.camel:camel-jms:2.11.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.camel:camel-spring:2.11.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.camel:camel-core:2.11.0" level="project" />
-    <orderEntry type="library" name="struts2-config-browser-plugin-2.3.8" level="project" />
   </component>
 </module>
