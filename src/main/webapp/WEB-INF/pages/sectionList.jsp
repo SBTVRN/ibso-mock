@@ -10,6 +10,8 @@
 <%--<meta name="menu" content="ConfigurationMenu"/>--%>
 <%--</head>--%>
 
+<script type="text/javascript">var msgDelConfirm = "<fmt:message key="delete.confirm.sections"/>"</script>
+
 <div class="span10">
     <h2><fmt:message key="sectionList.heading"/></h2>
 
@@ -38,7 +40,7 @@
                             <%--<fmt:message key="button.delete"/>--%>
                         <%--</s:submit>--%>
 
-                        <s:submit id="buttonDeleteSection" theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteSection()" disabled="true"/>
+                        <s:submit id="buttonDeleteSection" theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmMessage(msgDelConfirm)"/>
                     </div>
                 </td>
                 <td align="right">

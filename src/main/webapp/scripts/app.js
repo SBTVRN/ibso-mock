@@ -20,18 +20,7 @@ else {
     }
 }
 
-function confirmDeleteConfiguration() {
-    var msg = getMessage('msg_confirm_delete_configurations');
-    var ans = confirm(msg);
-    return ans;
-}
-
-function confirmDeleteSection() {
-    var msg = getMessage('msg_confirm_delete_sections');
-    var ans = confirm(msg);
-    return ans;
-}
-
+// 03.08.2016 Хрипушин А.В. Не используется, подтверждения берутся из messages.properties
 function getMessage(name) {
     jQuery.i18n.properties({
         name: 'js',

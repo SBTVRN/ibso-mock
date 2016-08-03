@@ -5,6 +5,8 @@
     <%--<meta name="menu" content="ConfigurationMenu"/>--%>
 <%--</head>--%>
 
+<script type="text/javascript">var msgDelConfirm = "<fmt:message key="delete.confirm.configurations"/>"</script>
+
 <div class="span10">
     <h2>
         <s:property value="pageTitle" />
@@ -49,7 +51,7 @@
 
                         <s:submit theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" />
 
-                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteConfiguration()" />
+                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmMessage(msgDelConfirm)" />
                     </div>
                 </td>
                 <td align="right">
