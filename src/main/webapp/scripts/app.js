@@ -11,6 +11,15 @@ function confirmMessage(obj) {
     return ans;
 }
 
+function checkAll() {
+    if (document.getElementById('allChecker').checked) {
+        $('.selectableCheckbox').prop('checked','checked');
+    }
+else {
+        $('.selectableCheckbox').removeAttr('checked') ;
+    }
+}
+
 function confirmDeleteConfiguration() {
     var msg = getMessage('msg_confirm_delete_configurations');
     var ans = confirm(msg);

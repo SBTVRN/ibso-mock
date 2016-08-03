@@ -82,7 +82,7 @@
 
             <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
-            <display:column titleKey="configuration.select" media="html">
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll()'/>" media="html">
                 <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
             </display:column>
             <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>

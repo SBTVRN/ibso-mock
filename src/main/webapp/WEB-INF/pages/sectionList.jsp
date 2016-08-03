@@ -2,6 +2,7 @@
   Created by RazuvaevSV
   Date: 13.07.2016
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
@@ -37,7 +38,7 @@
                             <%--<fmt:message key="button.delete"/>--%>
                         <%--</s:submit>--%>
 
-                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteSection()" />
+                        <s:submit id="buttonDeleteSection" theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmDeleteSection()" disabled="true"/>
                     </div>
                 </td>
                 <td align="right">
@@ -63,11 +64,11 @@
             </tr>
         </table>
 
-        <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
+            <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
         <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize='${pageSize}'>
 
             <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
-            <display:column titleKey="section.select" media="html" >
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll()'/>" media="html" >
                 <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}"/>
             </display:column>
             <display:column titleKey="section.count" media="html" sortable="false" property="configurationsSize" />
