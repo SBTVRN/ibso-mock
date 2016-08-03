@@ -45,13 +45,14 @@
                             <fmt:message key="button.import"/>
                         </s:a>
 
-                        <s:submit theme="simple" key="button.export" cssClass="btn btn-info" method="exportSelected" />
+                        <s:submit id="buttonExport" theme="simple" key="button.export" cssClass="btn btn-info" method="exportSelected" disabled="true"/>
 
-                        <s:submit theme="simple" key="button.activate" cssClass="btn btn-success" method="activateSelected" />
+                        <s:submit id="buttonActivate" theme="simple" key="button.activate" cssClass="btn btn-success" method="activateSelected" disabled="true"/>
 
-                        <s:submit theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" />
+                        <s:submit id="buttonDeactivate" theme="simple" key="button.deactivate" cssClass="btn btn-warning" method="deactivateSelected" disabled="true"/>
 
-                        <s:submit theme="simple" key="button.delete" cssClass="btn btn-danger"  method="deleteSelected" onclick="return confirmMessage(msgDelConfirm)" />
+                        <s:submit id="buttonDelete" theme="simple" key="button.delete" cssClass="btn btn-danger"
+                                  method="deleteSelected" onclick="return confirmMessage(msgDelConfirm)" disabled="true"/>
                     </div>
                 </td>
                 <td align="right">
@@ -84,8 +85,8 @@
 
             <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
-            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll()'/>" media="html">
-                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}"/>
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); buttonsEnabler()'/>" media="html">
+                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}" onchange="buttonsEnabler()"/>
             </display:column>
             <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
             <%--<display:column property="name" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.name">--%>

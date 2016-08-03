@@ -11,12 +11,40 @@ function confirmMessage(obj) {
     return ans;
 }
 
+// "Выделить всё"
 function checkAll() {
     if (document.getElementById('allChecker').checked) {
-        $('.selectableCheckbox').prop('checked','checked');
+        $('.selectableCheckbox').prop('checked',true);
     }
 else {
         $('.selectableCheckbox').removeAttr('checked') ;
+    }
+}
+
+// Изменение статуса "Выделить всё"
+function CheckAllStateChange() {
+
+}
+
+// Включение кнопок при включении галочек
+function buttonsEnabler() {
+    var isChecked = false;
+    $('.selectableCheckbox').each(function () {
+        if ($(this).prop('checked')) {
+            isChecked = true;
+        }
+    });
+    if(isChecked) {
+        $('#buttonDelete').prop('disabled',false);
+        $('#buttonActivate').prop('disabled',false);
+        $('#buttonDeactivate').prop('disabled',false);
+        $('#buttonExport').prop('disabled',false);
+    }
+    else {
+        $('#buttonDelete').prop('disabled',true);
+        $('#buttonActivate').prop('disabled',true);
+        $('#buttonDeactivate').prop('disabled',true);
+        $('#buttonExport').prop('disabled',true);
     }
 }
 
