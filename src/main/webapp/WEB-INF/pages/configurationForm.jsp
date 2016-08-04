@@ -87,13 +87,7 @@ function reindexOutputParameters() {
 <s:form id="configurationForm" theme="bootstrap" action="saveConfiguration" method="post" cssClass="form-horizontal well" validate="true">
 
     <s:hidden key="configuration.id" name="msgConfiguration.id"/>
-    <s:hidden key="configuration.id" name="msgConfiguration.section.id"/>
-
-
-    <s:textfield size="58" key="configuration.parentSection" name="msgConfiguration.section.name" value="%{msgConfiguration.section.name}" disabled="true" />
-    <%--<s:select list=""  />--%>
-
-
+    <s:select key="configuration.parentSection" list="%{sections}" listKey="id" listValue="name" value="%{msgConfiguration.section.id}" name="msgConfiguration.section.id" />
     <s:textfield key="configuration.name" name="msgConfiguration.name" />
     <s:textarea cols="60" rows="1" key="configuration.description" name="msgConfiguration.description"/>
 

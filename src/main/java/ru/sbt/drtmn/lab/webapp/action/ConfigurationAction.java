@@ -33,6 +33,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     private String pageTitle;
     private Long parentSectionId;
     private Section parentSection;
+    private List sections;
     // Variables for work with Configuration
     private ConfigurationManager configurationManager;
     private List configurations;
@@ -147,6 +148,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     }
 
     public String edit() {
+        sections = sectionManager.getAllDistinct();
         if (id != null) {
             configuration = (Configuration)configurationManager.get(id);
             parentSection = configuration.getSection();
@@ -172,7 +174,8 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         boolean isNew = (configuration.getId() == null);
         configuration.setActive(true);
         configurationManager.save(configuration);
-        parentSection = configuration.getSection();
+        parentSectionId = configuration.getSection().getId();
+        parentSection = sectionManager.get(parentSectionId);
         pageTitle = parentSection.getName();
         configurations = sectionManager.getSectionConfigurations(parentSection);
         String key = (isNew) ? "Configuration [" + configuration.getName() + "] added" : "Configuration [" + configuration.getName() + "] updated";
@@ -372,6 +375,14 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public void setParentSection(Section parentSection) {
         this.parentSection = parentSection;
+    }
+
+    public List getSections() {
+        return sections;
+    }
+
+    public void setSections(List sections) {
+        this.sections = sections;
     }
 
     public ConfigurationManager getConfigurationManager() {
