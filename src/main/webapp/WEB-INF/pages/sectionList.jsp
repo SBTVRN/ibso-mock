@@ -71,8 +71,8 @@
         <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize='${pageSize}'>
 
             <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
-            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); checkboxProcessing()'/>" media="html" >
-                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}" onchange="checkboxProcessing()"/>
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); checkboxProcessor()'/>" media="html" >
+                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}" onchange="checkboxProcessor()"/>
             </display:column>
             <display:column titleKey="section.count" media="html" sortable="false" property="configurationsSize" />
             <display:column titleKey="section.name" media="html" sortable="true" href="configurations" property="name" paramId="parentSectionId" paramProperty="id" />

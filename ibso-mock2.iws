@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ca7ff4-1201-4114-bee9-7999a56896ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ibso-mock2.iws" afterPath="$PROJECT_DIR$/ibso-mock2.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sectionList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sectionList.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/scripts/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/app.js" />
     </list>
@@ -2007,21 +2007,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="configurationList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp">
+      <file leaf-file-name="configurationUpload.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="87" column="114" selection-start-line="87" selection-start-column="114" selection-end-line="87" selection-end-column="114" />
+            <state relative-caret-position="170">
+              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configurationList.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="27" />
+            <state relative-caret-position="690">
+              <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -2030,8 +2040,8 @@
       <file leaf-file-name="sectionList.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sectionList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="73" column="113" selection-start-line="73" selection-start-column="113" selection-end-line="73" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -2092,15 +2102,15 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/sbt/drtmn/lab/webapp/action/ConfigurationAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/sbt/drtmn/lab/bus/MessageProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/sbt/drtmn/lab/service/ConfigurationManagerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/ibso-mock2.iws" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationForm.jsp" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ibso-mock2.ipr" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sectionList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/scripts/app.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp" />
       </list>
     </option>
   </component>
@@ -3838,7 +3848,7 @@
       <workItem from="1470130607086" duration="323000" />
       <workItem from="1470130952794" duration="95000" />
       <workItem from="1470131064138" duration="916000" />
-      <workItem from="1470236438056" duration="3521000" />
+      <workItem from="1470236438056" duration="7263000" />
     </task>
     <task id="LOCAL-00001" summary="Generated code">
       <created>1386744665962</created>
@@ -3914,7 +3924,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3652000" />
+    <option name="totallyTimeSpent" value="7394000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
@@ -4272,14 +4282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tomcat.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -4344,26 +4346,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="87" column="114" selection-start-line="87" selection-start-column="114" selection-end-line="87" selection-end-column="114" />
+        <state relative-caret-position="561">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sectionList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="73" column="113" selection-start-line="73" selection-start-column="113" selection-end-line="73" selection-end-column="113" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/app.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/configurationUpload.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="27" />
+        <state relative-caret-position="170">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding />
         </state>
       </provider>

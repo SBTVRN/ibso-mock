@@ -21,11 +21,12 @@ else {
     }
 }
 
-// Обработчик включения чекбоксов
-function checkboxProcessing() {
+// Обработчик чекбоксов
+function checkboxProcessor() {
+    var checkboxes = $('.selectableCheckbox');
+    var allChecker = $('#allChecker');
     var checkedCount = 0;
-    var checkboxCount = $('.selectableCheckbox').length;
-    $('.selectableCheckbox').each(function () {
+    checkboxes.each(function () {
         if ($(this).prop('checked')) {
             checkedCount++;
         }
@@ -35,8 +36,11 @@ function checkboxProcessing() {
         $('#buttonActivate').prop('disabled',false);
         $('#buttonDeactivate').prop('disabled',false);
         $('#buttonExport').prop('disabled',false);
-        if (checkedCount == checkboxCount) {
-            $('#allChecker').prop('checked',true)
+        if (checkedCount == checkboxes.length) {
+            allChecker.prop('checked',true);
+            allChecker.prop('indeterminate',false);
+        } else {
+            allChecker.prop('indeterminate',true)
         }
     }
     else {
@@ -44,7 +48,8 @@ function checkboxProcessing() {
         $('#buttonActivate').prop('disabled',true);
         $('#buttonDeactivate').prop('disabled',true);
         $('#buttonExport').prop('disabled',true);
-        $('#allChecker').prop('checked',false)
+        allChecker.prop('indeterminate',false);
+        allChecker.prop('checked',false);
     }
 }
 
