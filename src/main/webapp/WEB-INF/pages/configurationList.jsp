@@ -85,8 +85,8 @@
 
             <%--<display:column property="id" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.id"/>--%>
             <%--<display:column property="id" media="csv excel xml pdf" titleKey="configuration.id"/>--%>
-            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); buttonsEnabler()'/>" media="html">
-                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}" onchange="buttonsEnabler()"/>
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); checkboxProcessing()'/>" media="html">
+                <input type="checkbox" name="selectedBox" class="selectableCheckbox" id="selectedBox" value="${configurationList.id}" onchange="checkboxProcessing()"/>
             </display:column>
             <display:column property="activeYesNo" sortable="true" titleKey="configuration.active"/>
             <%--<display:column property="name" sortable="true" href="editConfiguration" media="html" paramId="id" paramProperty="id" titleKey="configuration.name">--%>

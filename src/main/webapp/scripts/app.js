@@ -17,34 +17,34 @@ function checkAll() {
         $('.selectableCheckbox').prop('checked',true);
     }
 else {
-        $('.selectableCheckbox').removeAttr('checked') ;
+        $('.selectableCheckbox').prop('checked',false) ;
     }
 }
 
-// Изменение статуса "Выделить всё"
-function CheckAllStateChange() {
-
-}
-
-// Включение кнопок при включении галочек
-function buttonsEnabler() {
-    var isChecked = false;
+// Обработчик включения чекбоксов
+function checkboxProcessing() {
+    var checkedCount = 0;
+    var checkboxCount = $('.selectableCheckbox').length;
     $('.selectableCheckbox').each(function () {
         if ($(this).prop('checked')) {
-            isChecked = true;
+            checkedCount++;
         }
     });
-    if(isChecked) {
+    if(checkedCount > 0) {
         $('#buttonDelete').prop('disabled',false);
         $('#buttonActivate').prop('disabled',false);
         $('#buttonDeactivate').prop('disabled',false);
         $('#buttonExport').prop('disabled',false);
+        if (checkedCount == checkboxCount) {
+            $('#allChecker').prop('checked',true)
+        }
     }
     else {
         $('#buttonDelete').prop('disabled',true);
         $('#buttonActivate').prop('disabled',true);
         $('#buttonDeactivate').prop('disabled',true);
         $('#buttonExport').prop('disabled',true);
+        $('#allChecker').prop('checked',false)
     }
 }
 
