@@ -89,7 +89,11 @@ function reindexOutputParameters() {
     <s:hidden key="configuration.id" name="msgConfiguration.id"/>
     <s:hidden key="configuration.id" name="msgConfiguration.section.id"/>
 
+
     <s:textfield size="58" key="configuration.parentSection" name="msgConfiguration.section.name" value="%{msgConfiguration.section.name}" disabled="true" />
+    <%--<s:select list=""  />--%>
+
+
     <s:textfield key="configuration.name" name="msgConfiguration.name" />
     <s:textarea cols="60" rows="1" key="configuration.description" name="msgConfiguration.description"/>
 
