@@ -3,6 +3,8 @@ package ru.sbt.drtmn.lab.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.sbt.drtmn.lab.bus.ExchangeConfigurator;
 import ru.sbt.drtmn.lab.model.Configuration;
 import ru.sbt.drtmn.lab.model.Section;
 import ru.sbt.drtmn.lab.service.ConfigurationManager;
@@ -22,6 +24,9 @@ import java.util.List;
  */
 public class ConfigurationAction extends GenericAction implements Preparable {
     private static transient Logger logger = Logger.getLogger(GenericAction.class);
+    // ExchangeConfigurator
+    @Autowired
+    private ExchangeConfigurator exchangeConfigurator;
     // Variables for imported file
     private File fileUpload;
     private String fileUploadContentType;
@@ -185,6 +190,22 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         } else {
             return SUCCESS;
         }
+    }
+
+    public String sendMessage() {
+        String result = exchangeConfigurator.sendMessage(configuration);
+        saveMessage(getText( "Configuration " + configuration.getName() + " sent" ));
+        logger.debug("Get configurations for parentSectionId = " + parentSectionId);
+        try {
+            parentSection = configuration.getSection();
+            pageTitle = parentSection.getName();
+            configurations = sectionManager.getSectionConfigurations(parentSection);
+            logger.debug("Find: " + configurations.size() + " configurations for Section: " + pageTitle);
+        } catch (Exception e) {
+            addActionError(e.getMessage());
+            configurations = new ArrayList<Configuration>();
+        }
+        return SUCCESS;
     }
 
     public String setImportConfiguration() {

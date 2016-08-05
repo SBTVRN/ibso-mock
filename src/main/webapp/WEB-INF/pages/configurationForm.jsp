@@ -91,7 +91,7 @@ function reindexOutputParameters() {
     <s:textfield key="configuration.name" name="msgConfiguration.name" />
     <s:textarea cols="60" rows="1" key="configuration.description" name="msgConfiguration.description"/>
 
-    <br>
+    <br />
     <button id="add_input_param" type="button" class="btn btn-primary"><fmt:message key="configuration.addInputParameter"/></button>
     <table id="input_table" class="table table-bordered">
         <tr>
@@ -153,8 +153,11 @@ function reindexOutputParameters() {
     <div>
     <s:textarea cols="80" rows="20" key="configuration.messageTemplate" name="msgConfiguration.messageTemplate" required="false" />
     </div>
+    <div id="actions" class="form-actions">
+        <s:submit type="button" cssClass="btn btn-info" method="sendMessage" key="button.send" theme="simple" />
+    </div>
 
-    <br>
+    <br />
     <div id="actions" class="form-actions">
         <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
             <fmt:message key="button.save"/>

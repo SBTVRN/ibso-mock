@@ -94,6 +94,10 @@
         <action name="editConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="edit">
             <result name="success">/WEB-INF/pages/configurationForm.jsp</result>
         </action>
+        <!-- Send message to queue -->
+        <action name="sendMessage" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="sendMessage">
+            <result name="success">/WEB-INF/pages/configurationList.jsp</result>
+        </action>
         <!-- Back from edit configuration -->
         <action name="backFromEditConfiguration" class="ru.sbt.drtmn.lab.webapp.action.ConfigurationAction" method="back">
             <result name="success">/WEB-INF/pages/configurationList.jsp</result>
