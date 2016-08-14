@@ -584,7 +584,7 @@
     </modules>
   </component>
   <component name="ProjectResources">
-    <resource url="http://jakarta.apache.org/log4j/" location="$PROJECT_DIR$/../../DTD/log4j.dtd" />
+    <resource url="http://jakarta.apache.org/log4j/" location="C:/DTD/log4j.dtd" />
     <resource url="http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd" location="$MAVEN_REPOSITORY$/org/apache/struts/xwork/xwork-core/2.3.8/xwork-core-2.3.8.jar!/xwork-validator-1.0.2.dtd" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
@@ -599,7 +599,10 @@
     </option>
   </component>
   <component name="dataSourceStorageLocal">
-    <data-source name="Oracle - dbwork2@k9" uuid="af505736-6abb-4ffd-9856-77d84866869d" />
+    <data-source name="Oracle - dbwork2@k9" uuid="af505736-6abb-4ffd-9856-77d84866869d">
+      <user-name>yvikentiev</user-name>
+      <user-password>dfd3dfdcdfc3dfc1dfcfdfc4dfdedfc3dfcfdfdc</user-password>
+    </data-source>
   </component>
   <component name="libraryTable">
     <library name="camel-core-2.11.0">
@@ -2586,13 +2589,6 @@
     <library name="spring-jms-3.1.3.RELEASE">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/spring-jms-3.1.3.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="struts2-config-browser-plugin-2.3.8">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/struts2-config-browser-plugin-2.3.8.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

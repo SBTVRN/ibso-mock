@@ -2,12 +2,15 @@
   Created by RazuvaevSV
   Date: 13.07.2016
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/taglibs.jsp" %>
 
 <%--<head>--%>
 <%--<title><fmt:message key="configurationList.title"/></title>--%>
 <%--<meta name="menu" content="ConfigurationMenu"/>--%>
 <%--</head>--%>
+
+<script type="text/javascript">var msgDelConfirm = "<fmt:message key="delete.confirm.sections"/>"</script>
 
 <div class="span10">
     <h2><fmt:message key="sectionList.heading"/></h2>
@@ -17,7 +20,7 @@
         <s:submit action="search" cssClass="btn btn-success" theme="simple" key="button.search" />
     </s:form>
 
-    <form method="get" action="${ctx}/sectionActions" id="searchForm" class="form-search">
+    <form method="get" action="sectionActions" id="searchForm" class="form-search">
 
         <%--<div id="search" class="input-append">--%>
             <%--<input type="text" size="20" name="q" id="query" value="${param.q}"--%>
@@ -32,9 +35,13 @@
                         <s:a href="%{createNewSectionLink}" cssClass="btn btn-primary" type="button" theme="simple">
                             <fmt:message key="button.add"/>
                         </s:a>
-                        <s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete" onclick="return confirmDeleteSection()" >
-                            <fmt:message key="button.delete"/>
-                        </s:submit>
+
+                        <%--<s:submit method="deleteSelected" cssClass="btn btn-danger" type="button" theme="simple" key="button.delete">--%>
+                            <%--<fmt:message key="button.delete"/>--%>
+                        <%--</s:submit>--%>
+
+                        <s:submit id="buttonDelete" theme="simple" key="button.delete" cssClass="btn btn-danger"
+                                  method="deleteSelected" onclick="return confirmMessage(msgDelConfirm)" disabled="true"/>
                     </div>
                 </td>
                 <td align="right">
@@ -60,12 +67,12 @@
             </tr>
         </table>
 
-        <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
+            <!-- У каждого элемента должно быть две ссылки и чекбокс. Выделить / Зайти в раздел / редактировать  -->
         <display:table name="sections" class="table table-condensed table-striped table-hover" requestURI="" id="sectionList" export="false" pagesize='${pageSize}'>
 
             <%--<display:column property="id" sortable="true" href="editSection" media="html" paramId="id" paramProperty="id" titleKey="section.id"/>--%>
-            <display:column titleKey="section.select" media="html" >
-                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}"/>
+            <display:column title="<input type='checkbox' id='allChecker' onchange='checkAll(); checkboxProcessor()'/>" media="html" >
+                <input type="checkbox" class="selectableCheckbox" name="sectionSelectedBox" id="sectionSelectedBox" value="${sectionList.id}" onchange="checkboxProcessor()"/>
             </display:column>
             <display:column titleKey="section.count" media="html" sortable="false" property="configurationsSize" />
             <display:column titleKey="section.name" media="html" sortable="true" href="configurations" property="name" paramId="parentSectionId" paramProperty="id" />

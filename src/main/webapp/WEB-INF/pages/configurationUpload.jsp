@@ -29,8 +29,8 @@
     <s:submit type="button" cssClass="btn btn-info" value="submit" key="button.uploadfresh" theme="simple" method="importOnlyFresh">
         <fmt:message key="button.uploadfresh"/>
     </s:submit>
-    <br />
-    <br />
+    <%--<br />--%>
+    <%--<br />--%>
     <s:submit type="button" cssClass="btn btn-warning" value="submit" key="button.uploadall" theme="simple" method="importAllWithReplace">
         <fmt:message key="button.uploadall"/>
     </s:submit>

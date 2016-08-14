@@ -45,6 +45,17 @@ public class MessageProcessor {
         return response;
     }
 
+    public String sendMessage(Configuration configuration) {
+        String response = null;
+        if (configuration == null) {
+            return response;
+        }
+        parseOutputParameters(configuration);
+        response = generateResponse(configuration);
+        exchangeCallback.send(response);
+        return response;
+    }
+
     private Configuration getMessageConfiguration(String message) {
         String method = XPathBuilder.xpath(METHOD_NAME).evaluate(camelContext, message, String.class);
         logger.debug("Configuration method=" + method);

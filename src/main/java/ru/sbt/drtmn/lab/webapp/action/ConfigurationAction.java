@@ -3,6 +3,8 @@ package ru.sbt.drtmn.lab.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.sbt.drtmn.lab.bus.ExchangeConfigurator;
 import ru.sbt.drtmn.lab.model.Configuration;
 import ru.sbt.drtmn.lab.model.Section;
 import ru.sbt.drtmn.lab.service.ConfigurationManager;
@@ -22,6 +24,9 @@ import java.util.List;
  */
 public class ConfigurationAction extends GenericAction implements Preparable {
     private static transient Logger logger = Logger.getLogger(GenericAction.class);
+    // ExchangeConfigurator
+    @Autowired
+    private ExchangeConfigurator exchangeConfigurator;
     // Variables for imported file
     private File fileUpload;
     private String fileUploadContentType;
@@ -33,6 +38,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     private String pageTitle;
     private Long parentSectionId;
     private Section parentSection;
+    private List sections;
     // Variables for work with Configuration
     private ConfigurationManager configurationManager;
     private List configurations;
@@ -147,6 +153,7 @@ public class ConfigurationAction extends GenericAction implements Preparable {
     }
 
     public String edit() {
+        sections = sectionManager.getAllDistinct();
         if (id != null) {
             configuration = (Configuration)configurationManager.get(id);
             parentSection = configuration.getSection();
@@ -172,16 +179,33 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         boolean isNew = (configuration.getId() == null);
         configuration.setActive(true);
         configurationManager.save(configuration);
-        parentSection = configuration.getSection();
+        parentSectionId = configuration.getSection().getId();
+        parentSection = sectionManager.get(parentSectionId);
         pageTitle = parentSection.getName();
         configurations = sectionManager.getSectionConfigurations(parentSection);
         String key = (isNew) ? "Configuration [" + configuration.getName() + "] added" : "Configuration [" + configuration.getName() + "] updated";
         saveMessage(getText(key));
         if (!isNew) {
-            return INPUT;
+            return SUCCESS;
         } else {
             return SUCCESS;
         }
+    }
+
+    public String sendMessage() {
+        String result = exchangeConfigurator.sendMessage(configuration);
+        saveMessage(getText( "Configuration " + configuration.getName() + " sent" ));
+        logger.debug("Get configurations for parentSectionId = " + parentSectionId);
+        try {
+            parentSection = configuration.getSection();
+            pageTitle = parentSection.getName();
+            configurations = sectionManager.getSectionConfigurations(parentSection);
+            logger.debug("Find: " + configurations.size() + " configurations for Section: " + pageTitle);
+        } catch (Exception e) {
+            addActionError(e.getMessage());
+            configurations = new ArrayList<Configuration>();
+        }
+        return SUCCESS;
     }
 
     public String setImportConfiguration() {
@@ -295,6 +319,18 @@ public class ConfigurationAction extends GenericAction implements Preparable {
         return SUCCESS;
     }
 
+    @Override
+    public void validate(){
+        if (configuration.getId() == null) {
+            try {
+                Configuration configurationByName = configurationManager.getMsgConfigurationsByName(configuration.getName()).get(0);
+                addFieldError("msgConfiguration.name", " Шаблон с именем " + configurationByName.getName() + " существует в БД");
+            } catch (Exception e) {
+                logger.debug("Name check success");
+            }
+        }
+    }
+
     // Getters and Setters
 
 
@@ -360,6 +396,14 @@ public class ConfigurationAction extends GenericAction implements Preparable {
 
     public void setParentSection(Section parentSection) {
         this.parentSection = parentSection;
+    }
+
+    public List getSections() {
+        return sections;
+    }
+
+    public void setSections(List sections) {
+        this.sections = sections;
     }
 
     public ConfigurationManager getConfigurationManager() {

@@ -55,6 +55,26 @@ public class SectionManagerImpl extends GenericManagerImpl<Section, Long> implem
         return ret;
     }
 
+    @Override
+    public void update(Section section) {
+        Section oldSection = get(section.getId());
+        oldSection.setName(section.getName());
+        oldSection.setDescription(section.getDescription());
+    }
+
+    @Override
+    public List<Section> getSectionsByName(String name) {
+        List<Section> ret = new ArrayList<Section>();
+        if (name == null) {
+            return ret;
+        }
+        logger.debug("Section name=" + name);
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("name", name);
+        ret = sectionDao.findByNamedQuery("findSectionsByName", params);
+        return ret;
+    }
+
     public ConfigurationDao getConfigurationDao() {
         return configurationDao;
     }

@@ -7,6 +7,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.log4j.Logger;
 import org.apache.velocity.app.VelocityEngine;
+import ru.sbt.drtmn.lab.model.Configuration;
 import ru.sbt.drtmn.lab.service.ConfigurationManager;
 import ru.sbt.drtmn.lab.util.FileUtil;
 
@@ -26,6 +27,7 @@ public class ExchangeConfigurator {
     private VelocityEngine velocityEngine;
     private CamelContext context;
     private ConfigurationManager configurationManager;
+    private MessageProcessor messageProcessor;
 
     private Properties properties;
     private String source;
@@ -72,7 +74,7 @@ public class ExchangeConfigurator {
             context.addRoutes(new RouteBuilder() {
                 @Override
                 public void configure() throws Exception {
-                    MessageProcessor messageProcessor = new MessageProcessor(velocityEngine, context, createExchangeCallback("direct:response", context));
+                    messageProcessor = new MessageProcessor(velocityEngine, context, createExchangeCallback("direct:response", context));
                     messageProcessor.setConfigurationManager(configurationManager);
                     this
                             .from(source)
@@ -101,6 +103,10 @@ public class ExchangeConfigurator {
                 logger.debug("Message [\n" + message + "\n] is sent to endpoint [" + endpointUri + "]");
             }
         };
+    }
+
+    public String sendMessage(Configuration configuration) {
+        return messageProcessor.sendMessage(configuration);
     }
 
     public void destroy() throws Exception {
